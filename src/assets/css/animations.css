@@ -1,0 +1,8 @@
+#adjectives {
+	transition: opacity 500ms ease;
+	opacity: 1;
+}
+
+#adjectives.changing {
+	opacity: 0;
+}

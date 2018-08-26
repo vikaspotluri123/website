@@ -1,0 +1,10 @@
+{
+  "name": "resume",
+  "version": "0.0.1",
+  "description": "The resume of Vikas Potluri",
+  "main": "build.js",
+  "repository": "https://github.com/vikaspotluri123/vikaspotluri.ml",
+  "author": "Vikas <potlurivikas@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

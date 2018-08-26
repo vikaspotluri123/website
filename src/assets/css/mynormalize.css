@@ -1,0 +1,12 @@
+/*! More generic css, by Vikas Potluri (https://github.com/vikaspotluri123) */
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+::selection {
+	color: #000;
+	background: yellow;
+}
