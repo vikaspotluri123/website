@@ -32,9 +32,8 @@
 	border-radius: 50%;
 	animation: 3s breathe infinite;
 	background: rgba(255, 255, 255, 0.5);
-}
 
-
-#loader .small {
-	animation-delay: -1.2s;
+	.small {
+		animation-delay: -1.2s;
+	}
 }
