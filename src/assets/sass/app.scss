@@ -1,5 +1,9 @@
 @import 'normalize';
 @import 'mynormalize';
+
+$primary: #111;
+$secondary: #800000;
+
 @import 'core';
 @import 'fragmented-transitions';
 @import 'loader';

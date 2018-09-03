@@ -6,6 +6,10 @@ body {
 	color: #fbfbfb;
 }
 
+#content {
+	box-sizing: border-box;
+}
+
 .flex {
 	display: flex;
 }
@@ -74,18 +78,18 @@ body {
 	}
 
 	&::before {
-		border-top: 1px solid #800000;
+		border-top: 1px solid $secondary;
 		transform: scale3d(0, 1, 0);
 	}
 
 	&::after {
-		border-left: 1px solid #800000;
-		border-right: 1px solid #800000;
+		border-left: 1px solid $secondary;
+		border-right: 1px solid $secondary;
 		transform: scale3d(1, 0, 0);
 	}
 
 	&:hover {
-		border-bottom-color: #800000;
+		border-bottom-color: $secondary;
 
 		&::before,
 		&::after {
@@ -140,6 +144,6 @@ body {
 	transition: all 0.5s ease-in-out;
 
 	&:hover {
-		box-shadow: 2px 2px 5px 5px rgba(52,52,92,0.52);
+		box-shadow: 0 0 10px 10px rgba($secondary, 0.6);
 	}
 }
