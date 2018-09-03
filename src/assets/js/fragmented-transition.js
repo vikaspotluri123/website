@@ -22,18 +22,23 @@ if ('serviceWorker' in navigator) {
 					const tempEl = document.createElement('html');
 					tempEl.innerHTML = response;
 					const content = tempEl.querySelector('#content') || _404;
+					const classes = content.classList || [];
 
-					return content.innerHTML || content;
+					return {content: content.innerHTML || content, classes};
 				}).catch((error) => {
 					debugger;
 					return `
 					<h1>500</h1>
 					<p>Internal Client Error</p>
 				`;
-				}).then(content => {
+				}).then(({content, classes}) => {
 					setTimeout(() => {
 						window.history.pushState(null, '', this.href);
-						document.getElementById('content').innerHTML = content;
+						const element = document.getElementById('content');
+						element.innerHTML = content;
+						if (classes.length) {
+							element.classList = classes;
+						}
 						window.rendered();
 						document.body.classList.remove('transitioning');
 					}, (start + 250) - Date.now());
