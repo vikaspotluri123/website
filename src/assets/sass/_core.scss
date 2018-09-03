@@ -19,6 +19,14 @@ body {
 	justify-content: center;
 }
 
+.flex.hc {
+	align-items: center;
+}
+
+.left {
+	text-align: left;
+}
+
 .centered {
 	text-align: center;
 }
@@ -84,6 +92,27 @@ body {
 			transform: scale3d(1, 1, 1);
 		}
 	}
+}
+
+.hr {
+	width: 100%;
+	background: darken(#fbfbfb, 50%);
+	height: 1px;
+	margin: 0 auto;
+}
+
+.w8 {
+	box-sizing: border-box;
+	padding: 0 20%;
+	width: 100%;
+}
+
+.pt10 {
+	padding-top: 10%;
+}
+
+.pl10 {
+	margin-left: -10px;
 }
 
 #adjectives {
