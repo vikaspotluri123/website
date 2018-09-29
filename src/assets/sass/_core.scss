@@ -40,6 +40,10 @@ body {
 	height: 100%;
 }
 
+.sticky {
+	position: sticky;
+}
+
 a:link,
 a:visited {
 	&:not(.link) {
@@ -72,6 +76,10 @@ a:visited {
 	width: 100%;
 }
 
+.t10 {
+	top: 10px;
+}
+
 .pt10 {
 	padding-top: 10%;
 }
@@ -84,6 +92,7 @@ a:visited {
   font-size: 2em;
   margin: 0.67em 0;
 }
+
 
 li:not(.pretty-link) {
 	line-height: 1.5;
@@ -191,5 +200,13 @@ li:not(.pretty-link) {
 
 	&:hover {
 		box-shadow: 0 0 10px 10px rgba($secondary, 0.6);
+	}
+}
+
+section {
+	display: none !important;
+
+	&.active {
+		display: flex !important;
 	}
 }
