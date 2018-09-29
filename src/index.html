@@ -8,14 +8,15 @@
 		<!--endbuild-->
 		<title>Vikas Potluri</title>
 	</head>
-	<body>
+	<body class="active-introduction">
 		<div id="loader">
 			<div class="circle small"></div>
 			<div class="circle big"></div>
 		</div>
-		<main id="content">
-			<section id="introduction" class="full-height flex flex-col centered active">
-				<img src="./assets/img/headshot.png" id="headshot" />
+		<a href="#introduction" class="link hot hs-w" ><img src="./assets/img/headshot.png" class="hs" /></a>
+		<main id="content" class="hot full-height flex flex-col centered">
+			<section id="introduction" class="flex flex-col centered content-section active">
+				<img src="./assets/img/headshot.png" id="headshot" class="hs" />
 				<h1>Howdy! I'm <span class="emphasize">Vikas Potluri</span></h1>
 				<p>
 					I
@@ -23,24 +24,19 @@
 					<span id="adjectives" class="no-screen-readers">design</span>
 					modern software and hardware
 				</p>
+			</section>
+			<!-- Navigation needs to be below the intro section, but above the other sections-->
+			<nav>
 				<ul class="inline-links">
 					<li class="pretty-link"><a class="link modern" href="#courses">Coursework</a></li>
 					<li class="pretty-link"><a class="link modern" href="#motivation">Motivation</a></li>
 					<li class="pretty-link"><a class="link modern" href="#experience">Experience</a></li>
 					<li class="pretty-link"><a class="link modern" href="#resume">Resume</a></li>
 				</ul>
-			</section>
-			<section id="sticky-links" class="flex flex-col centered">
-				<ul class="inline-links sticky t10">
-					<li class="pretty-link"><a class="link modern" href="#courses">Coursework</a></li>
-					<li class="pretty-link"><a class="link modern" href="#motivation">Motivation</a></li>
-					<li class="pretty-link"><a class="link modern" href="#experience">Experience</a></li>
-					<li class="pretty-link"><a class="link modern" href="#resume">Resume</a></li>
-				</ul>
-			</section>
-			<section id="motivation" class="full-height flex flex-col centered">
+			</nav>
+			<section id="motivation" class="flex flex-col content-section">
 				<p class="center like-h1">Vikas Potluri</p>
-				<div class="content left w8">
+				<div class="left">
 					<h1 class="inset">Motivation</h1>
 					<div class="hr centered pl10"></div>
 					<p>The work I do is fueled by the things that motivate me, such as:</p>
@@ -48,44 +44,37 @@
 						<li>Security - nothing is 100% secure, but that doesn't mean you can settle for 70%</li>
 						<li>Accessibility - design and implementation should be as inclusive as possible</li>
 						<li>Minimalism - let the core experience speak for itself; minimize the bells and whistles</li>
-						<li>Extensibility - design your product with the expectation that someone will try to modify it to make it work
-							better for them</li>
-							<li>Happiness - do something that people will appreciate. I personally find happiness in creating or doing something
-								that brings people joy</li>
-							</ul>
-						</div>
-					</section>
-					<section id="experience" class="full-height flex flex-col centered">
-						<p class="center like-h1">Vikas Potluri</p>
-						<div class="content left w8">
-							<h1 class="inset">Experience</h1>
-							<div class="hr centered pl10"></div>
-							<h2>Hardware</h2>
-							<h3>College</h3>
-							<h3>High School (Junior Year) - Science Fair</h3>
-							<ul style="list-style-image: url('assets/img/hardware-white-sm.png')">
-								<li>Project Archive (@todo @link)</li>
-								<li>Designed and implemented a study to evaluate the productivity of zero-axis (stationary), single-axis and
-									dual-axis light-tracking solar arrays using the scientific method. Implemented safe power disposal methods and
-									collected data using automation</li>
-								<li>Mix of hardware and software - PHP/SQL, Raspberry Pi, Arduino, photovoltaic cells, and power + light dependent
-									resistors</li>
-							</ul>
-							<h3>High School (Senior Year) - Digital Electronics</h3>
-							<ul style="list-style-image: url('assets/img/hardware-white-sm.png')">
-								<li>Designed (in MultiSim) and implemented (using breadboards) a variety of circuits to expand my understanding of
-									basic electronic and binary knowledge</li>
-								<li>Followed the <abbr title="Project Lead The Way">PLTW</abbr> guidelines - <a href="./assets/binary/de-pltw-outline.pdf">course
-										outline</a></li>
-							</ul>
-						</div>
-					</section>
-				</main>
-			</body>
-			<!--build:js-->
-			<script src="./assets/js/load-service-worker.js"></script>
-			<script src="./assets/js/onload.js"></script>
-			<script src="./assets/js/fragmented-transition.js"></script>
+						<li>Extensibility - design your product with the expectation that someone will try to modify it to make it work better for them</li>
+						<li>Happiness - do something that people will appreciate. I personally find happiness in creating or doing something that brings people joy</li>
+					</ul>
+				</div>
+			</section>
+			<section id="experience" class="flex flex-col content-section">
+				<p class="center like-h1">Vikas Potluri</p>
+				<div class="left w8">
+					<h1 class="inset">Experience</h1>
+					<div class="hr centered pl10"></div>
+					<h2>Hardware</h2>
+					<h3>College</h3>
+					<h3>High School (Junior Year) - Science Fair</h3>
+					<ul style="list-style-image: url('assets/img/hardware-white-sm.png')">
+						<li>Project Archive (@todo @link)</li>
+						<li>Designed and implemented a study to evaluate the productivity of zero-axis (stationary), single-axis and dual-axis light-tracking solar arrays using the scientific method. Implemented safe power disposal methods and collected data using automation</li>
+						<li>Mix of hardware and software - PHP/SQL, Raspberry Pi, Arduino, photovoltaic cells, and power + light dependent resistors</li>
+					</ul>
+					<h3>High School (Senior Year) - Digital Electronics</h3>
+					<ul style="list-style-image: url('assets/img/hardware-white-sm.png')">
+						<li>Designed (in MultiSim) and implemented (using breadboards) a variety of circuits to expand my understanding of basic electronic and binary knowledge</li>
+						<li>Followed the <abbr title="Project Lead The Way">PLTW</abbr> guidelines - <a href="./assets/binary/de-pltw-outline.pdf">course outline</a></li>
+					</ul>
+				</div>
+			</section>
+		</main>
+	</body>
+	<!--build:js-->
+	<script src="./assets/js/load-service-worker.js"></script>
+	<script src="./assets/js/onload.js"></script>
+	<script src="./assets/js/fragmented-transition.js"></script>
 	<script src="./assets/js/adjectives.js"></script>
 	<!--endbuild-->
 </html>

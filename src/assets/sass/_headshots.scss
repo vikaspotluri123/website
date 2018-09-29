@@ -1,0 +1,24 @@
+.hs {
+	border-radius: 50%;
+	transition: all 0.5s ease-in-out;
+
+	&:hover {
+		box-shadow: 0 0 10px 10px rgba($secondary, 0.6);
+	}
+}
+
+.hs-w {
+	display: block;
+	position: fixed;
+	top: 1.5vh;
+	left: 1.5vw;
+
+	.hs {
+		height: 50px;
+
+		.active-introduction & {
+			display: none;
+		}
+	}
+
+}

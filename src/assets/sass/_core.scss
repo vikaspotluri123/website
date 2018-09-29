@@ -194,19 +194,10 @@ li:not(.pretty-link) {
 	user-select: none;
 }
 
-#headshot {
-	border-radius: 50%;
-	transition: all 0.5s ease-in-out;
-
-	&:hover {
-		box-shadow: 0 0 10px 10px rgba($secondary, 0.6);
-	}
-}
-
-section {
-	display: none !important;
+.content-section {
+	display: none;
 
 	&.active {
-		display: flex !important;
+		display: flex;
 	}
 }

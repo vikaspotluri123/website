@@ -1,9 +1,10 @@
-#content {
+.hot {
 	transition: opacity 500ms ease;
 }
 
 .transitioning {
-	#content {
+	// HideOnTransitioning
+	.hot {
 		transition-delay: 10ms;
 		opacity: 0;
 	}

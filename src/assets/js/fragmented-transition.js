@@ -35,6 +35,8 @@ if ('serviceWorker' in navigator) {
 				activeElement.classList.remove('active');
 				newActiveElement.classList.add('active');
 				window.history.pushState(location, '', location);
+				document.body.classList.add(`active-${id}`);
+				document.body.classList.remove(`active-${activeElement.id}`);
 				document.body.classList.remove('transitioning');
 				activeElement = newActiveElement;
 			}, 400);
