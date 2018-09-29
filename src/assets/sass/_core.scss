@@ -73,7 +73,7 @@ a:visited {
 .w8 {
 	box-sizing: border-box;
 	padding: 0 20%;
-	width: 100%;
+	width: 100vw;
 }
 
 .t10 {
@@ -200,4 +200,12 @@ li:not(.pretty-link) {
 	&.active {
 		display: flex;
 	}
+}
+
+body:not(.active-introduction) nav {
+	position: fixed;
+	top: 0;
+	background: #222;
+	padding: 0 20%;
+	padding-top: 1.5vh;
 }
