@@ -1,5 +1,4 @@
 if ('serviceWorker' in navigator) {
-	const log = window.createLogger('Fragmented Transition');
 	let activeElement = document.querySelector('section.active');
 	if (!activeElement) {
 		console.warn('No active element found!');
@@ -46,7 +45,7 @@ if ('serviceWorker' in navigator) {
 			Array.from(document.links).filter(link =>
 				link.getAttribute('href').startsWith('#') && !link.classList.contains('no-listen')
 			).forEach(link => {
-				log('Adding Listener:', link.href);
+				console.log('Adding Listener:', link.href);
 				link.addEventListener('click', window.fragmentedTransition.clicked);
 			});
 		},
