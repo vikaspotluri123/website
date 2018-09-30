@@ -41,14 +41,6 @@ if ('serviceWorker' in navigator) {
 			}, 500);
 
 		},
-		addListeners() {
-			Array.from(document.links).filter(link =>
-				link.getAttribute('href').startsWith('#') && !link.classList.contains('no-listen')
-			).forEach(link => {
-				console.log('Adding Listener:', link.href);
-				link.addEventListener('click', window.fragmentedTransition.clicked);
-			});
-		},
 		// @todo: update state on pushState and actually use it
 		handlePopState({ state }) {
 			const self = window.fragmentedTransition;
@@ -58,6 +50,12 @@ if ('serviceWorker' in navigator) {
 		}
 	};
 
-	window.fragmentedTransition.addListeners();
+	Array.from(document.links).filter(link =>
+		link.getAttribute('href').startsWith('#') && !link.classList.contains('no-listen')
+	).forEach(link => {
+		console.log('Adding Listener:', link.href);
+		link.addEventListener('click', window.fragmentedTransition.clicked);
+	});
+
 	window.onpopstate = window.fragmentedTransition.handlePopState;
 }
