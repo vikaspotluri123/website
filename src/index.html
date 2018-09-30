@@ -8,14 +8,14 @@
 		<!--endbuild-->
 		<title>Vikas Potluri</title>
 	</head>
-	<body class="active-introduction">
+	<body class="ACTIVE_PAGE">
 		<div id="loader">
 			<div class="circle small"></div>
 			<div class="circle big"></div>
 		</div>
 		<a href="#introduction" class="link hot hs-w" ><img src="./assets/img/headshot.png" class="hs" /></a>
 		<main id="content" class="hot full-height flex flex-col centered">
-			<section id="introduction" class="flex flex-col centered content-section active">
+			<section id="introduction" class="flex flex-col centered content-section ACTIVE_IF_INDEX">
 				<img src="./assets/img/headshot.png" id="headshot" class="hs" />
 				<h1>Howdy! I'm <span class="emphasize">Vikas Potluri</span></h1>
 				<p>
@@ -28,13 +28,13 @@
 			<!-- Navigation needs to be below the intro section, but above the other sections-->
 			<nav>
 				<ul class="inline-links">
-					<li class="pretty-link"><a class="link modern" href="#courses">Coursework</a></li>
-					<li class="pretty-link"><a class="link modern" href="#motivation">Motivation</a></li>
-					<li class="pretty-link"><a class="link modern" href="#experience">Experience</a></li>
-					<li class="pretty-link"><a class="link modern" href="#resume">Resume</a></li>
+					<li class="pretty-link"><a class="link modern ACTIVE_IF_COURSES" href="#courses">Coursework</a></li>
+					<li class="pretty-link"><a class="link modern ACTIVE_IF_MOTIVATION" href="#motivation">Motivation</a></li>
+					<li class="pretty-link"><a class="link modern ACTIVE_IF_EXPERIENCE" href="#experience">Experience</a></li>
+					<li class="pretty-link"><a class="link modern ACTIVE_IF_RESUME" href="#resume">Resume</a></li>
 				</ul>
 			</nav>
-			<section id="motivation" class="flex flex-col content-section">
+			<section id="motivation" class="flex flex-col content-section ACTIVE_IF_MOTIVATION">
 				<p class="center like-h1">Vikas Potluri</p>
 				<div class="left w8">
 					<h1 class="inset">Motivation</h1>
@@ -49,7 +49,7 @@
 					</ul>
 				</div>
 			</section>
-			<section id="experience" class="flex flex-col content-section">
+			<section id="experience" class="flex flex-col content-section ACTIVE_IF_EXPERIENCE">
 				<p class="center like-h1">Vikas Potluri</p>
 				<div class="left w8">
 					<h1 class="inset">Experience</h1>
@@ -69,7 +69,7 @@
 					</ul>
 				</div>
 			</section>
-			<section id="resume" class="flex flex-col center content-section">
+			<section id="resume" class="flex flex-col center content-section ACTIVE_IF_RESUME">
 				<p class="like-h1">The resume of Vikas Potluri</p>
 				<div class="w8">
 					<p>A redacted version of my resume is publicly available below. If you would like an unredacted version, please <a href="/contact">contact me</a> directly.</p>
