@@ -64,7 +64,5 @@ const assets = Object.values(require('../build/rev-manifest.json'));
 			removeComments: true
 		}))
 		.pipe(gulp.dest('build'))
-		.on('end', () => {
-			makePages.then(cb);
-		});
+		.on('end', () => makePages().then(cb));
 };
