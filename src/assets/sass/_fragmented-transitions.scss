@@ -1,17 +1,10 @@
+// HideOnTransitioning
 .hot {
 	transition: opacity 500ms ease;
-}
 
-.transitioning {
-	// HideOnTransitioning
-	.hot {
+	.transitioning & {
 		transition-delay: 10ms;
 		opacity: 0;
-	}
-
-	#loader {
-		transition-delay: 500ms;
-		visibility: visible;
 	}
 }
 

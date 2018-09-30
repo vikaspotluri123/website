@@ -38,8 +38,8 @@ if ('serviceWorker' in navigator) {
 				newActiveElement.classList.add('active');
 				window.history.pushState(location, '', location);
 				activeElement = newActiveElement;
-				setTimeout(() => document.body.classList.remove('transitioning'), 250);
-			}, 300);
+				document.body.classList.remove('transitioning');
+			}, 500);
 
 		},
 		addListeners() {
