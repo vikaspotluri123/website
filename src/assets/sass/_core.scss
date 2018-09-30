@@ -55,7 +55,8 @@ a:visited {
 		transition: all 0.25s ease-in-out,
 					border-bottom 0.15s ease-in-out;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: darken(lightblue, 10%);
 			border: 1px solid darken(lightblue, 10%);
 			border-bottom: 2px solid darken(lightblue, 10%);
@@ -183,7 +184,10 @@ li:not(.pretty-link) {
 	}
 
 	&:active,
+	&:focus,
 	&:hover {
+		outline: none;
+
 		&:not(.bt) {
 			border-bottom-color: $secondary;
 		}

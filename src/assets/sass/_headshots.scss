@@ -12,16 +12,15 @@
 	top: 1.5vh;
 	left: 1.5vw;
 	transition: opacity 1ms linear;
+	visibility: visible;
+	opacity: 1;
+
+	.active-introduction & {
+		opacity: 0;
+		visibility: hidden;
+	}
 
 	.hs {
 		height: 50px;
-		visibility: visible;
-		opacity: 1;
-
-		.active-introduction & {
-			opacity: 0;
-			visibility: hidden;
-		}
 	}
-
 }
