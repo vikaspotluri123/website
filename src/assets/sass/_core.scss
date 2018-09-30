@@ -256,3 +256,11 @@ body:not(.active-introduction) {
 		}
 	}
 }
+
+@each $page in $pages {
+	body.active-#{$page} .nav-#{$page} {
+		color: $white;
+		background: $secondary;
+		cursor: initial;
+	}
+}

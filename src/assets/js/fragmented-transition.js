@@ -32,14 +32,14 @@ if ('serviceWorker' in navigator) {
 
 			document.body.classList.add('transitioning');
 			setTimeout(() => {
+				document.body.classList.add(`active-${id}`);
+				document.body.classList.remove(`active-${activeElement.id}`);
 				activeElement.classList.remove('active');
 				newActiveElement.classList.add('active');
 				window.history.pushState(location, '', location);
-				document.body.classList.add(`active-${id}`);
-				document.body.classList.remove(`active-${activeElement.id}`);
-				document.body.classList.remove('transitioning');
 				activeElement = newActiveElement;
-			}, 400);
+				setTimeout(() => document.body.classList.remove('transitioning'), 250);
+			}, 300);
 
 		},
 		addListeners() {
