@@ -1,4 +1,6 @@
 if ('serviceWorker' in navigator) {
+	const body = document.body;
+	let listeners = [];
 	let activeElement = document.querySelector('section.active');
 	if (!activeElement) {
 		console.warn('No active element found!');
@@ -29,17 +31,23 @@ if ('serviceWorker' in navigator) {
 				return;
 			}
 
-			document.body.classList.add('transitioning');
+			const bodyClass = `transitioning-to-${id}`;
+			body.classList.add('transitioning');
+			body.classList.add(bodyClass);
 			setTimeout(() => {
-				document.body.classList.add(`active-${id}`);
-				document.body.classList.remove(`active-${activeElement.id}`);
+				body.classList.add(`active-${id}`);
+				body.classList.remove(`active-${activeElement.id}`);
 				activeElement.classList.remove('active');
 				newActiveElement.classList.add('active');
 				window.history.pushState(location, '', location);
+				listeners.forEach(listener => listener());
 				activeElement = newActiveElement;
-				document.body.classList.remove('transitioning');
+				body.classList.remove('transitioning');
+				body.classList.remove(bodyClass);
 			}, 500);
-
+		},
+		onPageChange(action) {
+			listeners.push(action);
 		},
 		// @todo: update state on pushState and actually use it
 		handlePopState({ state }) {
