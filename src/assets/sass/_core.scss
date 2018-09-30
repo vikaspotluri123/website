@@ -137,9 +137,9 @@ li:not(.pretty-link) {
 	margin: 0.2rem 0.5rem;
 	transition: all 0.4s ease;
 	border: 1px solid transparent;
-	border-bottom: 1px solid #fbfbfb;
+	border-bottom: 1px solid $white;
 	text-decoration: none;
-	color: #fbfbfb;
+	color: $white;
 
 	&::before,
 	&::after {
@@ -158,14 +158,35 @@ li:not(.pretty-link) {
 		transform: scale3d(0, 1, 0);
 	}
 
+	&.bt {
+		&::before {
+			top: -1px;
+			// @todo: fix this
+			width: calc(100% + 2px);
+			border-top: 1px solid $secondary;
+			border-bottom: 1px solid $secondary;
+		}
+
+		&::after {
+			top: 0;
+			// @todo: fix this
+			border-right: 2px solid $secondary;
+			width: calc(100% - 1px);
+			left: -1px;
+		}
+	}
+
 	&::after {
 		border-left: 1px solid $secondary;
 		border-right: 1px solid $secondary;
 		transform: scale3d(1, 0, 0);
 	}
 
+	&:active,
 	&:hover {
-		border-bottom-color: $secondary;
+		&:not(.bt) {
+			border-bottom-color: $secondary;
+		}
 
 		&::before,
 		&::after {
@@ -196,16 +217,42 @@ li:not(.pretty-link) {
 
 .content-section {
 	display: none;
+	box-sizing: border-box;
 
 	&.active {
 		display: flex;
 	}
 }
 
-body:not(.active-introduction) nav {
-	position: fixed;
-	top: 0;
-	background: #222;
-	padding: 0 20%;
-	padding-top: 1.5vh;
+body:not(.active-introduction) {
+	.content-section {
+		margin-top: 150px;
+	}
+
+	nav {
+		position: fixed;
+		top: 0;
+		background: #222;
+		padding: 0 20%;
+		padding-top: 1.5vh;
+	}
+}
+
+#resume {
+	margin-top: 0;
+}
+
+.resume-link {
+	margin: 0 auto;
+	margin-top: 5vh;
+	height: 35px;
+
+	.link {
+		border: 1px solid $white;
+
+		&:hover {
+			background: $secondary;
+			color: $white;
+		}
+	}
 }
