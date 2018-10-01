@@ -1,17 +1,17 @@
-if ('serviceWorker' in navigator) {
-	const body = document.body;
-	let listeners = [];
-	let activeElement = document.querySelector('section.active');
+function buildFragmentedTransition() {
+	var body = document.body;
+	var listeners = [];
+	var activeElement = document.querySelector('section.active');
 	if (!activeElement) {
 		console.warn('No active element found!');
 	}
 
 	window.fragmentedTransition = {
-		clicked(event) {
+		clicked: function (event) {
 			event.preventDefault();
 
-			let id;
-			let location;
+			var id;
+			var location;
 			if (this.pageTransition) {
 				id = this.href === '#' ? '#introduction' : this.href
 			} else {
@@ -21,7 +21,7 @@ if ('serviceWorker' in navigator) {
 			id = id.substr(1);
 			location = id === 'introduction' ? '/' : id;
 
-			const newActiveElement = document.getElementById(id);
+			var newActiveElement = document.getElementById(id);
 			if (activeElement === newActiveElement) {
 				return;
 			}
@@ -31,7 +31,7 @@ if ('serviceWorker' in navigator) {
 				return;
 			}
 
-			const bodyClass = `transitioning-to-${id}`;
+			var bodyClass = `transitioning-to-${id}`;
 			body.classList.add('transitioning');
 			body.classList.add(bodyClass);
 			setTimeout(() => {
@@ -46,13 +46,13 @@ if ('serviceWorker' in navigator) {
 				body.classList.remove(bodyClass);
 			}, 500);
 		},
-		onPageChange(action) {
+		onPageChange: function (action) {
 			listeners.push(action);
 		},
 		// @todo: update state on pushState and actually use it
-		handlePopState({ state }) {
-			const self = window.fragmentedTransition;
-			let { href } = document.location;
+		handlePopState: function (state) {
+			var self = window.fragmentedTransition;
+			var { href } = document.location;
 			href = `#${href.replace(window.origin + '/', '')}`;
 			self.clicked.call({ pageTransition: true, href }, new Event('POPSTATE'));
 		}
@@ -67,3 +67,5 @@ if ('serviceWorker' in navigator) {
 
 	window.onpopstate = window.fragmentedTransition.handlePopState;
 }
+
+buildFragmentedTransition();
