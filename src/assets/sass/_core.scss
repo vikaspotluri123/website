@@ -89,16 +89,29 @@ a:visited {
 	margin-left: -10px;
 }
 
+.pl40 {
+	margin-left: -40px;
+}
+
 .like-h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
+span {
+	line-height: 1.25;
+	font-size: 1.05em;
+}
 
+p,
 li:not(.pretty-link) {
 	line-height: 1.5;
-	padding: 0.15em;
+	/* padding: 0.15em; */
 	font-size: 1.1em;
+}
+
+li:not(.pretty-link) {
+	padding: 0.15em;
 }
 
 .inline-links {

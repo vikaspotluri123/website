@@ -7,7 +7,7 @@ const {promisify} = require('util');
 const read = promisify(readFile);
 const write = promisify(writeFile);
 
-const PAGES = ['index', 'motivation', 'experience', 'resume'];
+const PAGES = ['index', 'courses', 'motivation', 'experience', 'resume'];
 
 function makePages() {
 	return read('./build/index.html', 'utf8').then(index =>
