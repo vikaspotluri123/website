@@ -1,0 +1,11 @@
+@media (max-width: 650px) {
+	.inline-links {
+		flex-direction: column;
+		width: 100%;
+
+		.link {
+			width: 25vw;
+			margin: .5rem .75rem
+		}
+	}
+}
