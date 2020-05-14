@@ -1,32 +1,27 @@
 {
-  "name": "resume",
-  "version": "0.0.1",
-  "description": "The resume of Vikas Potluri",
-  "main": "build.js",
-  "repository": "https://github.com/vikaspotluri123/vikaspotluri.ml",
-  "author": "Vikas <potlurivikas@gmail.com>",
-  "license": "MIT",
+  "name": "website",
+  "license": "GPL3",
   "private": true,
-  "devDependencies": {
-    "autoprefixer": "^9.5.1",
-    "css-mqpacker": "^7.0.0",
-    "cssnano": "^4.1.10",
-    "del": "^4.1.0",
-    "gulp": "4.0.1",
-    "gulp-changed": "^3.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-csscomb": "^3.0.8",
-    "gulp-html-replace": "^1.6.2",
+  "author": {
+    "email": "me@vikaspotluri.ml",
+    "name": "Vikas Potluri",
+    "url": "https://vikaspotluri.me"
+  },
+  "homepage": "https://vikaspotluri.me",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "dependencies": {
     "gulp-htmlmin": "^5.0.1",
-    "gulp-order": "^1.2.0",
+    "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-cssnano": "^2.1.3",
     "gulp-postcss": "^8.0.0",
-    "gulp-rev": "^9.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-strip-debug": "^3.0.0",
-    "gulp-uglify-es": "^1.0.4",
-    "merge-stream": "^1.0.1",
-    "postcss-combine-duplicated-selectors": "^7.0.0",
-    "postcss-custom-properties": "^8.0.10"
+    "gulp-purgecss": "^2.2.0"
   }
 }
