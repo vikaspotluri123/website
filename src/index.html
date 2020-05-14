@@ -4,8 +4,30 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Vikas Potluri</title>
+	<link rel="stylesheet" href="/css/global.css" />
+	<link rel="stylesheet" href="/css/index.css" />
 </head>
 <body>
-	<h1>Hello, World!</h1>
+	<header class="fixed w-screen h-12 align-middle nav-bg text-white z-50">
+		<div class="container mx-auto px-6 h-full flex items-center justify-between">
+			<a class="text-center block w-full sm:text-left sm:inline sm:w-auto">Vikas</a>
+			<nav class="hidden sm:block">
+				<ul class="list-none flex">
+					<li class="px-2"><a href="#">Projects</a></li>
+					<li class="px-2"><a href="#">Projects</a></li>
+					<li class="px-2"><a href="#">Projects</a></li>
+					<li class="px-2"><a href="#">Projects</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main class="text-black text-center z-5 pt-12 w-full">
+		<section id="hero" class="text-white flex items-center justify-center flex-col px-2">
+			<h1 class="md:text-6xl sm:text-5xl text-4xl mb-12">Howdy, I'm Vikas 👋</h1>
+			<img src="/img/headshot.png" alt="My face" class="w-40 h-40 mb-12" />
+			<p class="md:text-2xl text-lg mb-12">I <span class="verb">< verb /></span> modern software and hardware</p>
+			<p class="md:text-lg">Currently: Hardware Engineer @ <a href="#">Qualcomm</a></p>
+		</section>
+	</main>
 </body>
 </html>
