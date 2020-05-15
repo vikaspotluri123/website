@@ -86,3 +86,14 @@ body {
 	@apply font-bold;
 	@apply text-lg;
 }
+
+#verb {
+	@apply inline-block;
+	color: rgb(233, 255, 31);
+	transition: opacity 500ms ease;
+	opacity: 1;
+}
+
+#verb.changing {
+	opacity: 0;
+}

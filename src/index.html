@@ -25,23 +25,27 @@
 		<section id="hero" class="text-white flex items-center justify-center flex-col px-2">
 			<h1 class="md:text-6xl sm:text-5xl text-4xl mb-12">Howdy, I'm Vikas 👋</h1>
 			<img src="/img/headshot.png" alt="My face" class="w-40 h-40 mb-12" />
-			<p class="md:text-2xl text-lg mb-12">I <span class="verb">< verb /></span> modern software and hardware</p>
+			<p class="md:text-2xl text-lg mb-12">
+				I
+				<span class="sr-only">design, develop, and visualize</span>
+				<span id="verb" class="not-sr-only">design</span>
+				modern software and hardware</p>
 			<p class="md:text-lg">Currently: Hardware Engineer @ <a href="#">Qualcomm</a></p>
 		</section>
 		<section class="pt-2 px-2" id="work">
 			<div class="container mx-auto">
-			<h2 class="text-4xl text-left font-hairline mb-2"><span class="border-b border-black">What do I do?</span></h2>
-			<div class="content pb-12 text-white">
-				<div class="card card-bg-red">
-					<span class="card-heading">Qualcomm</span>
+				<h2 class="text-4xl text-left font-hairline mb-2"><span class="border-b border-black">What do I do?</span></h2>
+				<div class="content pb-12 text-white">
+					<div class="card card-bg-red">
+						<span class="card-heading">Qualcomm</span>
+					</div>
+					<div class="card card-bg-blue">
+						<span class="card-heading">Gradebook</span>
+					</div>
+					<div class="card card-bg-green">
+						<span class="card-heading">Consultation / Freelancing</span>
+					</div>
 				</div>
-				<div class="card card-bg-blue">
-					<span class="card-heading">Gradebook</span>
-				</div>
-				<div class="card card-bg-green">
-					<span class="card-heading">Consultation / Freelancing</span>
-				</div>
-			</div>
 			</div>
 		</section>
 		<section id="why" class="bg-red-500 h-32 py-64"></section>
@@ -50,5 +54,6 @@
 			<span class="copyright">&copy; 2020 Vikas Potluri</span>
 		</footer>
 	</main>
+	<script src="/verb.js"></script>
 </body>
 </html>
