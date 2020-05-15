@@ -35,6 +35,11 @@ body {
 	}
 }
 
+#why {
+	clip-path: polygon(0 0, 50% 10vh, 100% 0, 100% 100%, 50% calc(100% - 10vh), 0% 100%);
+	/* clip-path: polygon(0 30vh, 100% 0, 100% calc(100% - 30vh), 0% 100%); */
+}
+
 #work .content {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
