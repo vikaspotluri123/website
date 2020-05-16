@@ -44,6 +44,20 @@ body {
 	@apply mt-4;
 }
 
+.card-price {
+	@apply border-t;
+	@apply pt-4;
+	@apply mt-8;
+}
+
+.card-price--description {
+	@apply block;
+}
+
+.card-price--qty {
+	@apply text-3xl;
+}
+
 .card-bg-green {
 	background: linear-gradient(240deg, #005f03, #009900);
 	--box-layer-1: #005f03ff;
