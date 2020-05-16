@@ -18,7 +18,6 @@ body {
 	background: linear-gradient(240deg, rgba(0, 169, 255, 0.7) 0, rgba(0, 0, 169, 0.7) 100%), #00a9ff;
 }
 
-
 /* Cards */
 .card {
 	@apply h-32;
@@ -92,6 +91,14 @@ body {
 }
 
 .section--3 {
+	min-height: 30vh;
+	@apply flex;
+	@apply items-center;
+	@apply bg-blue-200;
+	@apply py-32;
+	@apply px-2;
+	@apply border-8;
+	@apply border-blue-700;
 	clip-path: polygon(0 0, 50% 10vh, 100% 0, 100% 100%, 50% calc(100% - 10vh), 0% 100%);
 	/* clip-path: polygon(0 30vh, 100% 0, 100% calc(100% - 30vh), 0% 100%); */
 }
