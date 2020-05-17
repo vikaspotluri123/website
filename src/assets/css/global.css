@@ -19,11 +19,28 @@ body {
 }
 
 /* Cards */
+.card--wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	gap: 1rem;
+}
+
 .card {
 	@apply min-h-full;
 	@apply p-6;
 	@apply rounded;
 	transition: all 250ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+@media (max-width: 400px) {
+	#work .content {
+		grid-template-columns: initial !important;
+	}
+
+	.card {
+		@apply w-full;
+		@apply mx-auto;
+	}
 }
 
 .card:hover {
@@ -56,6 +73,24 @@ body {
 
 .card-price--qty {
 	@apply text-3xl;
+}
+
+.card-button {
+	@apply inline-block;
+	@apply mt-4;
+	@apply py-2;
+	@apply px-4;
+	@apply bg-white;
+	@apply w-auto;
+	@apply text-blue-900;
+	@apply font-medium;
+	@apply rounded;
+	transition: 0.25s ease-in-out;
+}
+
+.card-button:hover {
+	@apply text-blue-300;
+	@apply bg-blue-900;
 }
 
 .card-bg-green {
@@ -125,11 +160,10 @@ body {
 }
 
 #work .content {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-	gap: 1rem;
 	@apply mt-10;
 	@apply items-center;
+	@apply pb-12;
+	@apply text-white;
 }
 
 #verb {
