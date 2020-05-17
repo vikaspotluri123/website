@@ -1,6 +1,7 @@
 @import './components/tailwind-core.css';
 @import './components/headings.css';
 @import './components/card.css';
+@import './components/vertical-nav.css';
 
 #hero {
 	background: linear-gradient(240deg, #00d2ff 0, #4550c6 100%), #00D2FF;
@@ -17,6 +18,10 @@
 	.mb-12 {
 		margin-bottom: 1.5rem;
 	}
+}
+
+.section--1:target {
+	padding-top: 3rem;
 }
 
 .section--3 {

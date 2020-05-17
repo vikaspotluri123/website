@@ -1,0 +1,30 @@
+@responsive {
+	.vertical-nav-wrapper {
+		display: grid;
+		grid-template-columns: 2rem 1fr;
+	}
+
+	.vertical-nav-wrapper--hide {
+		grid-template-columns: 1fr;
+	}
+}
+
+.vertical-nav--items {
+	@apply flex;
+	@apply items-center;
+	@apply justify-center;
+	@apply h-8;
+	@apply text-black;
+	/* This transform makes the navigation visible.
+	 *   We rotate 90 degrees to make it a vertical navigation
+	 *   We offset it -1rem in the X direction to line it up with its parent
+	 *   We offset it -1rem in the Y direction to prevent content clipping
+	 */
+	transform: rotate(90deg) translateX(-1rem) translateY(-1rem);
+	transform-origin: left;
+	/**
+	 * The width of the element is actually the height since it's rotated 90deg.
+	 * We make it 3rem shorter than the viewport to account for the fixed header
+	 */
+	width: calc(100vh - 3rem);
+}
