@@ -2,8 +2,6 @@
 
 @tailwind components;
 
-@tailwind utilities;
-
 :root {
 	--white: #ebebeb;
 	--black: #4F4F4F;
@@ -34,7 +32,7 @@ body {
 
 @media (max-width: 400px) {
 	#work .content {
-		grid-template-columns: initial !important;
+		grid-template-columns: initial;
 	}
 
 	.card {
@@ -183,3 +181,5 @@ body {
 #verb.changing {
 	opacity: 0;
 }
+
+@tailwind utilities;
