@@ -54,11 +54,18 @@ body {
 	@apply text-lg;
 }
 
+.card-heading--large {
+	@apply text-2xl;
+	@apply mb-8;
+}
+
 .card-description {
 	@apply text-left;
 	@apply list-disc;
 	@apply px-6;
 	@apply mt-4;
+	@apply font-hairline;
+	@apply tracking-wide;
 }
 
 .card-price {
