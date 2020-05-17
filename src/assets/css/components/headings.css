@@ -1,0 +1,11 @@
+.h2 {
+	@apply text-4xl;
+	@apply text-left;
+	@apply font-hairline;
+	@apply mb-2;
+}
+
+.h2--border {
+	@apply border-b;
+	@apply border-black;
+}

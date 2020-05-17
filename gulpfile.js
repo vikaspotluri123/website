@@ -6,6 +6,7 @@ task('css', () => {
 
 	return src('./src/assets/css/*.css')
 		.pipe(postcss([
+			require('postcss-import'),
 			require('tailwindcss'),
 			require('autoprefixer')
 		]))
