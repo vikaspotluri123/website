@@ -28,6 +28,56 @@ task('html:minify', () => {
 		.pipe(dest('./dist'));
 });
 
+task('html:inline', async callback => {
+	const FILE_TO_LARGE = Symbol('file is too large');
+	const INLINE_THRESHOLD = 20_000; // Don't inline anything over ~20k
+
+	const fs = require('fs').promises;
+	const replace = require('gulp-replace');
+	const readdirp = require('readdirp');
+
+	const assets = new Map();
+	const promises = [];
+
+	for await (const entry of readdirp(`dist/css`, {alwaysStat: true, depth: 2})) {
+		const key = `css/${entry.path}`;
+		if (entry.stats.size > INLINE_THRESHOLD) {
+			assets.set(key, FILE_TO_LARGE);
+		} else {
+			promises.push(
+				fs.readFile(`./dist/${key}`, 'utf-8').then(contents => {
+					assets.set(key, contents);
+				})
+			)
+		}
+	}
+
+	await Promise.all(promises);
+	src('./dist/*.html')
+		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (_, asset) => {
+			const contents = assets.get(asset.replace(/^\//, ''));
+
+			if (contents === undefined) {
+				console.warn('Invalid asset referenced: %s', asset);
+				return '';
+			}
+
+			if (contents === FILE_TO_LARGE) {
+				console.warn('Not inlining %s because it is too large', asset);
+				return '';
+			}
+
+			if (contents === '') {
+				console.warn('Empty asset: %s', asset);
+				return '';
+			}
+
+			return `<style>${contents}</style>`;
+		}))
+		.pipe(dest('./dist'))
+		.on('end', () => callback());
+});
+
 task('css:minify', () => {
 	const purgecss = require('gulp-purgecss');
 	const minify = require('gulp-cssnano');
@@ -58,5 +108,6 @@ task('dev', series('default', function devServer() {
 
 task('build', series(
 	'default',
-	parallel('css:minify', 'html:minify')
+	parallel('css:minify', 'html:minify'),
+	'html:inline'
 ));
