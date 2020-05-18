@@ -5,7 +5,7 @@
 
 #hero {
 	background: linear-gradient(240deg, #00d2ff 0, #4550c6 100%), #00D2FF;
-	min-height: calc(100vh - 3rem);
+	min-height: calc(100vh - theme('spacing.12'));
 	/* clip-path: polygon(0 0, 100% 0, 100% calc(100vh - 10vh), 0% 100%) */
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100vh - 15vh))
 }
@@ -20,19 +20,13 @@
 	}
 }
 
-.section--1:target {
-	padding-top: 3rem;
+.target\:pt-12:target {
+	padding-top: theme('spacing.12');
 }
 
-.section--3 {
-	min-height: 30vh;
-	@apply flex;
-	@apply items-center;
-	@apply bg-blue-200;
+.clip-arrow {
 	@apply py-32;
-	@apply px-2;
-	@apply border-8;
-	@apply border-blue-700;
+	min-height: 30vh;
 	clip-path: polygon(0 0, 50% 10vh, 100% 0, 100% 100%, 50% calc(100% - 10vh), 0% 100%);
 	/* clip-path: polygon(0 30vh, 100% 0, 100% calc(100% - 30vh), 0% 100%); */
 }
