@@ -95,14 +95,18 @@ task('default', parallel(['css', 'html']));
 
 task('dev', series('default', function devServer() {
 	const liveReload = require('browser-sync');
-	watch('./src/**/*.css', series('css')).on('change', liveReload.reload);
-	watch('./src/**/*.html', series('html')).on('change', liveReload.reload);
+	const reload = () => liveReload.reload();
+	watch('./src/**/*.css', series('css')).on('change', reload);
+	watch('./src/**/*.html', series('html')).on('change', reload);
 
 	liveReload.init({
 		server: {
 			baseDir: './dist/',
-			directory: true,
-		}
+			directory: true
+		},
+		watch: false,
+		open: false,
+		notify: false
 	})
 }));
 
