@@ -54,7 +54,11 @@ task('html:inline', async callback => {
 
 	await Promise.all(promises);
 	src('./dist/*.html')
-		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (_, asset) => {
+		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (tag, asset) => {
+			if (tag.includes('rel') && !tag.includes('stylesheet')) {
+				return asset;
+			}
+
 			const contents = assets.get(asset.replace(/^\//, ''));
 
 			if (contents === undefined) {
