@@ -25,6 +25,11 @@ task('html', async () => {
 	eleventy.writer.writeCount = 0;
 });
 
+task('binaries', () => {
+	return src(['./src/assets/font/**/*', './src/assets/img/**/*'], {base: './src/assets'})
+		.pipe(dest('./dist'));
+});
+
 task('html:minify', () => {
 	const minify = require('gulp-htmlmin');
 	return src('./dist/*.html')
@@ -102,13 +107,14 @@ task('css:minify', () => {
 		.pipe(dest('./dist/css'));
 });
 
-task('default', parallel(['css', 'html']));
+task('default', parallel(['css', 'html', 'binaries']));
 
 task('dev', series('default', function devServer() {
 	const liveReload = require('browser-sync');
 	const reload = () => liveReload.reload();
 	watch('./src/**/*.css', series('css')).on('change', reload);
 	watch('./src/**/*.html', series('html')).on('change', reload);
+	watch(['./src/assets/font/**/*', './src/assets/img/**/*'], series('binaries')).on('change', reload);
 
 	liveReload.init({
 		server: {
