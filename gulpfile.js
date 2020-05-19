@@ -1,5 +1,6 @@
 // @ts-check
 const {task, src, dest, parallel, series, watch} = require('gulp');
+let eleventy;
 
 task('css', () => {
 	const postcss = require('gulp-postcss');
@@ -13,9 +14,15 @@ task('css', () => {
 		.pipe(dest('dist/css'));
 });
 
-task('html', () => {
-	return src('./src/**/*.html')
-		.pipe(dest('./dist'));
+task('html', async () => {
+	if (!eleventy) {
+		const Eleventy = require('@11ty/eleventy');
+		eleventy = new Eleventy('./src', './dist');
+		await eleventy.init();
+	}
+
+	await eleventy.write();
+	eleventy.writer.writeCount = 0;
 });
 
 task('html:minify', () => {
