@@ -8,17 +8,19 @@
 	<link rel="stylesheet" href="/css/index.css" />
 </head>
 <body>
-	<header class="fixed w-screen h-12 align-middle nav-bg text-white z-50">
-		<div class="container mx-auto px-6 h-full flex items-center justify-between">
+	<header class="fixed w-screen sm:h-12 align-middle nav-bg text-white z-50">
+		<div class="container mx-auto px-6 h-full sm:flex items-center justify-between">
 			<a class="text-center block w-full sm:text-left sm:inline sm:w-auto">Vikas</a>
-			<nav class="hidden sm:block">
-				<ul class="list-none flex space-x-4">
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Uses</a></li>
-					<li><a href="#">The Vault</a></li>
-					<li><a href="#">Writing</a></li>
+			<input type="checkbox" id="nav-toggle" class="invisible sm:hidden absolute" />
+			<nav class="hidden text-center sm:block nav-collapsible">
+				<ul class="list-none sm:flex sm:space-x-4">
+					<li class="py-1 sm:py-0"><a href="#">Contact</a></li>
+					<li class="py-1 sm:py-0"><a href="#">Uses</a></li>
+					<li class="py-1 sm:py-0"><a href="#">Writing</a></li>
+					<li class="py-1 sm:py-0"><a href="#">The Vault</a></li>
 				</ul>
 			</nav>
+			<label for="nav-toggle" class="sm:hidden nav-collapsible--icon"><svg class="mx-auto w-6 h-6 transition transition-all duration-100" fill="currentColor" role="img" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg></label>
 		</div>
 	</header>
 	<main class="text-black text-center z-5 pt-12 w-full">

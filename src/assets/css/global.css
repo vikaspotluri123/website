@@ -2,6 +2,7 @@
 @import './components/headings.css';
 @import './components/card.css';
 @import './components/vertical-nav.css';
+@import './components/collapsible-nav.css';
 
 #hero {
 	background: linear-gradient(240deg, #00d2ff 0, #4550c6 100%), #00D2FF;

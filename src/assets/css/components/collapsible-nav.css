@@ -1,0 +1,8 @@
+
+#nav-toggle:checked ~ .nav-collapsible {
+	display: block !important;
+}
+
+#nav-toggle:checked ~ .nav-collapsible--icon svg {
+	transform: rotate(180deg);
+}
