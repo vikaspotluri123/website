@@ -83,4 +83,37 @@
 	fill: #500000;
 }
 
+.link {
+	position: relative;
+	@apply px-1;
+	@apply rounded;
+	background: linear-gradient(214deg, transparent 50%, #bfb2f3 , #96caf7, #9cdcaa, #e5e1ab);
+	background-size: 100% 450%;
+	transition-property: background-position, color;
+	transition-duration: 1s;
+	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.link:hover {
+	/* background: linear-gradient(214deg, #bfb2f3 , #96caf7, #9cdcaa, #e5e1ab); */
+	color: theme('colors.black');
+	background-position: 0 100%;
+	@apply pb-1;
+}
+
+.link:after {
+	content: '';
+	@apply rounded;
+	position: absolute;
+	left: 0;
+	bottom: -2.5px;
+	height: 2.5px;
+	width: 100%;
+	background: linear-gradient(214deg, #bfb2f3 , #96caf7, #9cdcaa, #e5e1ab);
+}
+
+.link:hover:after {
+	background: transparent;
+}
+
 @tailwind utilities;
