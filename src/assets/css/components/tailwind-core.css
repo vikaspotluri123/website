@@ -15,3 +15,10 @@ body {
 .nav-bg {
 	background: linear-gradient(240deg, rgba(0, 169, 255, 0.7) 0, rgba(0, 0, 169, 0.7) 100%), #00a9ff;
 }
+
+@media screen and (prefers-reduced-motion: no-preference) {
+	html,
+	body {
+		scroll-behavior: smooth;
+	}
+}
