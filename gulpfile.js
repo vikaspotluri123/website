@@ -2,6 +2,11 @@
 const {task, src, dest, parallel, series, watch} = require('gulp');
 let eleventy;
 
+task('enableProdMode', () => {
+	process.env.NODE_ENV = 'production';
+	return Promise.resolve();
+});
+
 task('css', () => {
 	const postcss = require('gulp-postcss');
 
@@ -9,7 +14,8 @@ task('css', () => {
 		.pipe(postcss([
 			require('postcss-import'),
 			require('tailwindcss'),
-			require('autoprefixer')
+			require('autoprefixer'),
+			... process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
 		]))
 		.pipe(dest('dist/css'));
 });
@@ -94,20 +100,7 @@ task('html:inline', async callback => {
 		.on('end', () => callback());
 });
 
-task('css:minify', () => {
-	const purgecss = require('gulp-purgecss');
-	const minify = require('gulp-cssnano');
-
-	return src('./dist/css/*.css')
-		// @ts-ignore the typings are wrong :(
-		.pipe(purgecss({
-			content: ['./dist/**/*.html']
-		}))
-		.pipe(minify())
-		.pipe(dest('./dist/css'));
-});
-
-task('default', parallel(['css', 'html', 'binaries']));
+task('default', series(parallel(['html', 'binaries']), 'css'));
 
 task('dev', series('default', function devServer() {
 	const liveReload = require('browser-sync');
@@ -128,7 +121,8 @@ task('dev', series('default', function devServer() {
 }));
 
 task('build', series(
+	'enableProdMode',
 	'default',
-	parallel('css:minify', 'html:minify'),
+	'html:minify',
 	'html:inline'
 ));
