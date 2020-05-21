@@ -12,6 +12,10 @@
 	src: url('/font/orbitron-partial.woff2') format('woff2');
 }
 
+.orbitron {
+	font-family: Orbitron;
+}
+
 #hero {
 	background: linear-gradient(240deg, #00d2ff 0, #4550c6 100%), #00D2FF;
 	min-height: calc(100vh - theme('spacing.12'));
