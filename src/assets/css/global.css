@@ -3,6 +3,7 @@
 @import './components/card.css';
 @import './components/vertical-nav.css';
 @import './components/collapsible-nav.css';
+@import './components/input.css';
 
 @font-face {
 	font-family: 'Orbitron';

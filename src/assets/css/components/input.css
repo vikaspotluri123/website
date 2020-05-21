@@ -1,0 +1,42 @@
+.fancy-input {
+	@apply w-full;
+	@apply my-6;
+	@apply border;
+	@apply border-black;
+	@apply rounded;
+	@apply px-2;
+	@apply relative;
+}
+
+.fancy-input--label {
+	@apply text-left;
+	@apply absolute;
+	@apply text-left;
+	@apply px-4;
+	@apply uppercase;
+	@apply tracking-wide;
+	@apply text-xs;
+	@apply font-bold;
+	@apply mb-2;
+	@apply -mt-2;
+	@apply bg-white;
+	left: theme('spacing.2');
+}
+
+.fancy-input--input {
+	@apply appearance-none;
+	@apply block;
+	@apply w-full;
+	@apply bg-gray-200;
+	@apply text-gray-700;
+	@apply rounded;
+	@apply py-3;
+	@apply px-4;
+	@apply my-4;
+	@apply leading-tight;
+}
+
+.fancy-input--input:focus {
+	@apply outline-none;
+	@apply shadow;
+}
