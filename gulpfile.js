@@ -68,7 +68,7 @@ task('html:inline', async callback => {
 	src('./dist/*.html')
 		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (tag, asset) => {
 			if (tag.includes('rel') && !tag.includes('stylesheet')) {
-				return asset;
+				return tag;
 			}
 
 			const contents = assets.get(asset.replace(/^\//, ''));
@@ -80,7 +80,7 @@ task('html:inline', async callback => {
 
 			if (contents === FILE_TO_LARGE) {
 				console.warn('Not inlining %s because it is too large', asset);
-				return '';
+				return tag;
 			}
 
 			if (contents === '') {
