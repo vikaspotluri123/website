@@ -111,8 +111,7 @@ task('dev', series('default', function devServer() {
 
 	liveReload.init({
 		server: {
-			baseDir: './dist/',
-			directory: true
+			baseDir: './dist/'
 		},
 		watch: false,
 		open: false,
