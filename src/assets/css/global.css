@@ -121,4 +121,8 @@
 	background: transparent;
 }
 
+.min-h-32 {
+	min-height: theme('spacing.32');
+}
+
 @tailwind utilities;
