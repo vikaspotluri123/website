@@ -1,0 +1,24 @@
+.social svg {
+	@apply h-6;
+	@apply inline-block;
+	@apply mx-1;
+	@apply px-1;
+	@apply transition;
+	@apply duration-200;
+}
+
+.hover\:fill-github:hover {
+	fill: #4078c0;
+}
+
+.hover\:fill-twitter:hover {
+	fill: #1DA1F2;
+}
+
+.hover\:fill-linkedin:hover {
+	fill: #0077B5;
+}
+
+.hover\:fill-generic:hover {
+	fill: #500000;
+}

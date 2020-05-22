@@ -1,0 +1,5 @@
+@import './components/input.css';
+
+.min-h-32 {
+	min-height: theme('spacing.32');
+}

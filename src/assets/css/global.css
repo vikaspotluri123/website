@@ -1,9 +1,9 @@
 @import './components/tailwind-core.css';
 @import './components/headings.css';
-@import './components/card.css';
-@import './components/vertical-nav.css';
 @import './components/collapsible-nav.css';
-@import './components/input.css';
+@import './components/link.css';
+@import './components/button.css';
+@import './components/social.css';
 
 @font-face {
 	font-family: 'Orbitron';
@@ -17,23 +17,6 @@
 	font-family: Orbitron;
 }
 
-#hero {
-	background: linear-gradient(240deg, #00d2ff 0, #4550c6 100%), #00D2FF;
-	min-height: calc(100vh - theme('spacing.12'));
-	/* clip-path: polygon(0 0, 100% 0, 100% calc(100vh - 10vh), 0% 100%) */
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100vh - 15vh))
-}
-
-@media (max-height: 500px) {
-	#hero {
-		clip-path: initial;
-	}
-
-	.mb-12 {
-		margin-bottom: 1.5rem;
-	}
-}
-
 .target\:pt-12:target {
 	padding-top: theme('spacing.12');
 }
@@ -43,88 +26,6 @@
 	min-height: 30vh;
 	clip-path: polygon(0 0, 50% 10vh, 100% 0, 100% 100%, 50% calc(100% - 10vh), 0% 100%);
 	/* clip-path: polygon(0 30vh, 100% 0, 100% calc(100% - 30vh), 0% 100%); */
-}
-
-#work .content {
-	@apply mt-10;
-	@apply items-center;
-	@apply pb-12;
-	@apply text-white;
-}
-
-#verb {
-	@apply inline-block;
-	color: rgb(233, 255, 31);
-	transition: opacity 500ms ease;
-	opacity: 1;
-}
-
-#verb.changing {
-	opacity: 0;
-}
-
-.social svg {
-	@apply h-6;
-	@apply inline-block;
-	@apply mx-1;
-	@apply px-1;
-	@apply transition;
-	@apply duration-200;
-}
-
-.hover\:fill-github:hover {
-	fill: #4078c0;
-}
-
-.hover\:fill-twitter:hover {
-	fill: #1DA1F2;
-}
-
-.hover\:fill-linkedin:hover {
-	fill: #0077B5;
-}
-
-.hover\:fill-generic:hover {
-	fill: #500000;
-}
-
-.link {
-	position: relative;
-	@apply px-1;
-	@apply rounded;
-	background: linear-gradient(214deg, transparent 50%, #bfb2f3 , #96caf7, #9cdcaa, #e5e1ab);
-	background-size: 250% 250%;
-	transition-property: background-position, color;
-	transition-duration: 1500ms;
-	transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-	background-position: 100% 0;
-	/* transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); */
-}
-
-.link:hover {
-	/* background: linear-gradient(214deg, #bfb2f3 , #96caf7, #9cdcaa, #e5e1ab); */
-	color: theme('colors.black');
-	background-position: 0% 100%;
-	@apply pb-1;
-}
-
-.link:after {
-	content: '';
-	@apply rounded;
-	position: absolute;
-	left: 0;
-	bottom: -2.5px;
-	height: 2.5px;
-	width: 100%;
-	background: linear-gradient(214deg, #bfb2f3 , #96caf7, #9cdcaa, #e5e1ab);
-}
-
-.link:hover:after {
-	background: transparent;
-}
-
-.min-h-32 {
-	min-height: theme('spacing.32');
 }
 
 @tailwind utilities;

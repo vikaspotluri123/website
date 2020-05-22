@@ -1,0 +1,17 @@
+.button {
+	@apply inline-block;
+	@apply mt-4;
+	@apply py-2;
+	@apply px-4;
+	@apply bg-white;
+	@apply w-auto;
+	@apply text-blue-900;
+	@apply font-medium;
+	@apply rounded;
+	transition: 0.25s ease-in-out;
+}
+
+.button:hover {
+	@apply text-blue-300;
+	@apply bg-blue-900;
+}

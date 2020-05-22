@@ -1,0 +1,37 @@
+@import './components/vertical-nav.css';
+@import './components/card.css';
+
+#hero {
+	background: linear-gradient(240deg, #00d2ff 0, #4550c6 100%), #00D2FF;
+	min-height: calc(100vh - theme('spacing.12'));
+	/* clip-path: polygon(0 0, 100% 0, 100% calc(100vh - 10vh), 0% 100%) */
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100vh - 15vh))
+}
+
+@media (max-height: 500px) {
+	#hero {
+		clip-path: initial;
+	}
+
+	.mb-12 {
+		margin-bottom: 1.5rem;
+	}
+}
+
+#work .content {
+	@apply mt-10;
+	@apply items-center;
+	@apply pb-12;
+	@apply text-white;
+}
+
+#verb {
+	@apply inline-block;
+	color: rgb(233, 255, 31);
+	transition: opacity 500ms ease;
+	opacity: 1;
+}
+
+#verb.changing {
+	opacity: 0;
+}
