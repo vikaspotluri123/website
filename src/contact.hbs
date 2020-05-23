@@ -8,9 +8,9 @@ title: Get in Touch
 	<p class="text-left leading-10">If you want to contact me, please fill out the form below. If  forms aren't your thing, you can shoot me an email - <a class="link" href="mailto:me@vikaspotluri.me" target="_blank" rel="noopener noreferrer">me@vikaspotluri.me</a>.</p>
 	<details class="container text-left mx-auto">
 		<summary>PGP</summary>
-		@todo
+		<code class="inline-block bg-gray-200 px-4 max-h-64 overflow-y-scroll select-all"><pre>{{> pgp}}</pre></code>
 	</details>
-	<form class="w-full max-w-lg mx-auto">
+	<form class="w-full max-w-lg mx-auto" method="POST" netlify>
 		<div class="fancy-input">
 			<label class="fancy-input--label" for="name">Name</label>
 			<input
@@ -47,7 +47,7 @@ title: Get in Touch
 			<textarea
 				class="fancy-input--input min-h-32"
 				id="message"
-				placeholder="I want all the paper. I love paper so much. Dunder Mifflin is the best paper company on Earth"
+				placeholder="Sometimes I'll start a sentence and I don't even know where it's going. I just hope I find it along the way."
 				required
 			></textarea>
 		</div>

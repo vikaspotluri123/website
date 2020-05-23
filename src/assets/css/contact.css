@@ -3,3 +3,7 @@
 .min-h-32 {
 	min-height: theme('spacing.32');
 }
+
+.max-h-64 {
+	max-height: theme('spacing.64');
+}

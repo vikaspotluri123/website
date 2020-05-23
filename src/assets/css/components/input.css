@@ -28,12 +28,16 @@
 	@apply block;
 	@apply w-full;
 	@apply bg-gray-200;
-	@apply text-gray-700;
+	@apply text-black;
 	@apply rounded;
 	@apply py-3;
 	@apply px-4;
 	@apply my-4;
 	@apply leading-tight;
+}
+
+.fancy-input--input::placeholder {
+	@apply text-gray-600;
 }
 
 .fancy-input--input:focus {
