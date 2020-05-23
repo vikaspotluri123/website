@@ -2,12 +2,49 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<title>Vikas Potluri</title>
 	<link rel="stylesheet" href="/css/global.css" />
 	<link rel="stylesheet" href="/css/index.css" />
 	<link rel="stylesheet" href="/css/contact.css" />
+	{{#meta}}
+		<title>{{title}}</title>
+		<meta name="description" content="{{description}}" />
+		<meta name="og:description" content="{{description}}" />
+		<meta name="twitter:description" content="{{description}}" />
+		<meta property="og:site_name" content="Vikas Potluri" />
+		<meta name="twitter:title" content="Vikas Potluri" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="{{title}}" />
+		<meta property="og:url" content="{{full_url}}" />
+		<meta name="twitter:url" content="{{full_url}}" />
+		<meta property="og:image" content="{{image}}" />
+		<meta name="twitter:image" content="{{image}}" />
+		<meta property="article:publisher" content="https://www.facebook.com/vikaspotluri" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@vikaspotluri123" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "publisher": {
+    "@type": "Person",
+    "name": "Vikas Potluri",
+    "url": "https://vikaspotluri.me/"
+  },
+  "url": "{{full_url}}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{image}}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://vikaspotluri.me/"
+  },
+  "description": "{{description}}"
+}
+</script>
+	{{/meta}}
 </head>
 <body>
 	<header class="fixed w-screen sm:h-12 align-middle nav-bg text-white z-50">
