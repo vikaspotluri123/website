@@ -1,5 +1,6 @@
 module.exports = eleventy => {
 	eleventy.addHandlebarsHelper('meta', require('./eleventy/compute-seo'));
+	eleventy.addHandlebarsHelper('block', require('./eleventy/block'));
 
 	return {
 		dir: {
