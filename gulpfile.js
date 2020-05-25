@@ -133,6 +133,7 @@ task('dev', series('default', function devServer() {
 	const liveReload = require('browser-sync');
 	const reload = () => liveReload.reload();
 	watch('./src/**/*.css', series('css')).on('change', reload);
+	watch('./src/**/*.js', series('js')).on('change', reload);
 	watch('./src/**/*.hbs', series('html')).on('change', reload);
 	watch(['./src/assets/font/**/*', './src/assets/img/**/*'], series('binaries')).on('change', reload);
 
