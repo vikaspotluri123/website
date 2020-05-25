@@ -2,6 +2,32 @@
 const {task, src, dest, parallel, series, watch} = require('gulp');
 let eleventy;
 
+
+const FILE_TO_LARGE = Symbol('file is too large');
+const INLINE_THRESHOLD = 20_000; // Don't inline anything over ~20k
+
+async function readAllAssets(type, assets) {
+	const readdirp = require('readdirp');
+	const fs = require('fs').promises;
+
+	const promises = [];
+
+	for await (const entry of readdirp(`dist/${type}`, {alwaysStat: true, depth: 2})) {
+		const key = `${type}/${entry.path}`;
+		if (entry.stats.size > INLINE_THRESHOLD) {
+			assets.set(key, FILE_TO_LARGE);
+		} else {
+			promises.push(
+				fs.readFile(`./dist/${key}`, 'utf-8').then(contents => {
+					assets.set(key, contents);
+				})
+			)
+		}
+	}
+
+	return Promise.all(promises);
+}
+
 task('enableProdMode', () => {
 	process.env.NODE_ENV = 'production';
 	return Promise.resolve();
@@ -57,39 +83,17 @@ task('html:minify', () => {
 });
 
 task('html:inline', async callback => {
-	const FILE_TO_LARGE = Symbol('file is too large');
-	const INLINE_THRESHOLD = 20_000; // Don't inline anything over ~20k
-
-	const fs = require('fs').promises;
 	const replace = require('gulp-replace');
-	const readdirp = require('readdirp');
-
 	const assets = new Map();
-	const promises = [];
 
-	for await (const entry of readdirp(`dist/css`, {alwaysStat: true, depth: 2})) {
-		const key = `css/${entry.path}`;
-		if (entry.stats.size > INLINE_THRESHOLD) {
-			assets.set(key, FILE_TO_LARGE);
-		} else {
-			promises.push(
-				fs.readFile(`./dist/${key}`, 'utf-8').then(contents => {
-					assets.set(key, contents);
-				})
-			)
-		}
-	}
+	await Promise.all([
+		readAllAssets('js', assets),
+		readAllAssets('css', assets),
+	]);
 
-	await Promise.all(promises);
-	src('./dist/*.html')
-		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (tag, asset) => {
-			if (tag.includes('rel') && !tag.includes('stylesheet')) {
-				return tag;
-			}
-
-			const contents = assets.get(asset.replace(/^\//, ''));
-
-			if (contents === undefined) {
+	const handleAsset = (asset, tag) => {
+		const contents = assets.get(asset.replace(/^\//, ''));
+		if (contents === undefined) {
 				console.warn('Invalid asset referenced: %s', asset);
 				return '';
 			}
@@ -104,7 +108,20 @@ task('html:inline', async callback => {
 				return '';
 			}
 
-			return `<style>${contents}</style>`;
+			return `<${tag}>${contents}</${tag}>`;
+	};
+
+	src('./dist/*.html')
+		// The first expression will capture styles, second scripts
+		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (tag, asset) => {
+			if (tag.includes('rel') && !tag.includes('stylesheet')) {
+				return tag;
+			}
+
+			return handleAsset(asset, 'style');
+		}))
+		.pipe(replace(/<script[^>]+?src="(.*?)"[^>]*><\/script>/g, (tag, asset) => {
+			return handleAsset(asset, 'script');
 		}))
 		.pipe(dest('./dist'))
 		.on('end', () => callback());

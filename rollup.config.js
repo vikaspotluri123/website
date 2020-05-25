@@ -6,7 +6,7 @@ const production = !process.env.ROLLUP_WATCH;
 const baseConfig = {
 	input: 'src/assets/js/*.js',
 	output: {
-		sourcemap: true,
+		sourcemap: !production,
 		format: 'iife',
 		dir: './dist/js'
 	},
