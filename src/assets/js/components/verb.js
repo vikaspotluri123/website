@@ -10,6 +10,7 @@ export default class Verb {
 		this._timeout = null;
 		this.start = this.start.bind(this);
 		this.finish = this.finish.bind(this);
+		this.initialize();
 	}
 
 	initialize() {
