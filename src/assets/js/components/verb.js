@@ -1,36 +1,37 @@
-const verbs = {
-	list: ['design', 'develop', 'visualize'],
-	// (precomputed) - number of characters in longest adjective
-	width: 9 - 1,
-	updateRate: 625,
-	element: false,
-	index: 0,
-	initialize: function initializeAdjectives() {
-		clearTimeout(verbs.timeout);
-		verbs.timeout = false;
-		if (verbs.index > 250) {
-			verbs.index %= verbs.list.length;
+// @ts-check
+export default class Verb {
+	constructor(element) {
+		this.list = ['design', 'develop', 'visualize']
+		// (precomputed) - number of characters in longest adjective
+		this.width = 9 - 1;
+		this.updateRate = 625;
+		this.element = element;
+		this._index = 0;
+		this._timeout = null;
+		this.start = this.start.bind(this);
+		this.finish = this.finish.bind(this);
+	}
+
+	initialize() {
+		clearTimeout(this._timeout);
+		this._timeout = null;
+		if (this._index > 250) {
+			this._index %= this.list.length;
 		}
 
-		verbs.element.style.width = verbs.width + 'ch';
-		verbs.timeout = setTimeout(verbs.start, verbs.updateRate);
-	},
-	start: function () {
-		verbs.element.classList.add('changing');
-		verbs.element.dataset.next = verbs.list[++verbs.index % verbs.list.length];
-		verbs.timeout = setTimeout(verbs.finish, verbs.updateRate);
-	},
-	finish: function () {
-		verbs.element.textContent = verbs.element.dataset.next;
-		verbs.element.classList.remove('changing');
-		verbs.timeout = setTimeout(verbs.start, verbs.updateRate * 4);
-	},
-	timeout: false
-}
+		this.element.style.width = this.width + 'ch';
+		this.timeout = setTimeout(this.start, this.updateRate);
+	}
 
-verbs.element = document.getElementById('verb');
+	start() {
+		this.element.classList.add('changing');
+		this.element.dataset.next = this.list[++this._index % this.list.length];
+		this._timeout = setTimeout(this.finish, this.updateRate);
+	}
 
-verbs.initialize();
-if (window.fragmentedTransition) {
-	window.fragmentedTransition.onPageChange(verbs.initialize);
+	finish() {
+		this.element.textContent = this.element.dataset.next;
+		this.element.classList.remove('changing');
+		this.timeout = setTimeout(this.start, this.updateRate * 4);
+	}
 }
