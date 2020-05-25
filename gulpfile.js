@@ -7,6 +7,16 @@ task('enableProdMode', () => {
 	return Promise.resolve();
 });
 
+task('js', () => new Promise((resolve, reject) => {
+	const {spawn} = require('child_process');
+
+	const cp = spawn('yarn', ['rollup', '-c'], {stdio: 'inherit'});
+
+	cp.on('exit', code => {
+		code === 0 ? resolve(code) : reject(code);
+	});
+}));
+
 task('css', () => {
 	const postcss = require('gulp-postcss');
 
@@ -100,7 +110,7 @@ task('html:inline', async callback => {
 		.on('end', () => callback());
 });
 
-task('default', series(parallel(['html', 'binaries']), 'css'));
+task('default', series(parallel(['html', 'binaries', 'js']), 'css'));
 
 task('dev', series('default', function devServer() {
 	const liveReload = require('browser-sync');
