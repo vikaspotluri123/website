@@ -1,0 +1,7 @@
+/* Note: I'm hoping to remove this in the future once Tailwind's typography plugin comes out */
+
+.content-section ul {
+	@apply list-disc;
+	@apply ml-6;
+	@apply my-4;
+}
