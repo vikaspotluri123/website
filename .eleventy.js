@@ -6,6 +6,8 @@ module.exports = eleventy => {
 		dir: {
 			layouts: '_layouts'
 		},
-		templateFormats: ['hbs', 'html']
+		templateFormats: ['hbs', 'html', 'md'],
+		htmlTemplateEngine: 'hbs',
+		markdownTemplateEngine: 'hbs'
 	};
 };
