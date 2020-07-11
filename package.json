@@ -19,14 +19,14 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.4",
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-replace": "^1.0.0",
     "postcss-import": "^12.0.1",
     "readdirp": "^3.4.0",
-    "rollup": "^2.10.9",
+    "rollup": "^2.21.0",
     "rollup-plugin-terser": "^6.1.0"
   }
 }
