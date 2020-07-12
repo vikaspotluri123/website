@@ -8,10 +8,10 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
 
-@import "ghost/init.css";
-@import "ghost/content.css";
-@import "ghost/readmore.css";
-@import "ghost/errors.css";
+@import "blog/init.css";
+@import "blog/content.css";
+@import "blog/readmore.css";
+@import "blog/errors.css";
 
 
 /* Main - Your styles here! Edit below
