@@ -16,7 +16,7 @@
 
 	var lastScrollY = window.scrollY;
 	var lastWindowHeight = window.innerHeight;
-	var lastDocumentHeight = getHeight(document);
+	var lastDocumentHeight = getHeight(document.documentElement);
 
 	function onScroll() {
 		lastScrollY = window.scrollY;
@@ -25,7 +25,7 @@
 
 	function onResize() {
 		lastWindowHeight = window.innerHeight;
-		lastDocumentHeight = getHeight(document);
+		lastDocumentHeight = getHeight(document.documentElement);
 		requestTick();
 	}
 
@@ -101,13 +101,11 @@
 			}).then(function (content) {
 				var parse = document.createRange().createContextualFragment(content);
 				var posts = parse.querySelectorAll('.post');
-				if (posts.length) {
-					[].forEach.call(posts, function (post) {
-						$result[0].appendChild(post);
-					});
+				for (const post of posts) {
+					$result.appendChild(post);
 				}
 			}).finally(function() {
-				lastDocumentHeight = getHeight(document);
+				lastDocumentHeight = getHeight(document.documentElement);
 				isLoading = false;
 				ticking = false;
 			});
