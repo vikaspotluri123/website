@@ -26,12 +26,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 
-.gh-main {
-	flex: 1 0 auto;
-	display: flex;
-	flex-direction: column;
-}
-
 .gh-page {
 	padding: 0 4vmin;
 }
