@@ -16,7 +16,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 @import "ghost/content.css";
 @import "ghost/readmore.css";
 @import "ghost/errors.css";
-@import "ghost/badge.css";
 
 
 /* Main - Your styles here! Edit below
