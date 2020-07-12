@@ -15,3 +15,9 @@ Hey future Vikas, how you 'doin? It looks like you want to enable members on you
     b. @import "components/buttons.css"; (after components/forms.css)
 
     c. @import "ghost/members.css"; (after components/readmore.css)
+
+Realistically, this is going to get out of date, so here are a couple references:
+
+- All the changes were done in 47e933c0217023a4bb0c15012b60e8839622b084
+
+- This theme is based on tryghost/starter - The Ghost team probably made changes to how members looks or works, so it might be easier to grab everything from that repo
