@@ -16,39 +16,21 @@
 <body class="{{body_class}}">
 <div class="gh-viewport">
 
-<header id="gh-head" class="gh-head">
-	<nav class="gh-head-inner gh-container">
-
-		<div class="gh-head-brand">
-			<a class="gh-head-logo" href="{{@site.url}}">
-				{{#if @site.logo}}
-					<img src="{{@site.logo}}" alt="{{@site.title}}" />
-				{{else}}
-					{{@site.title}}
-				{{/if}}
-			</a>
-			<a class="gh-burger" role="button">
-				<div class="gh-burger-box">
-					<div class="gh-burger-inner"></div>
-				</div>
-			</a>
+	<header class="fixed w-screen sm:h-12 align-middle nav-bg text-white z-50">
+		<div class="container mx-auto px-6 h-full sm:flex items-center justify-between">
+			<a class="text-center block w-full sm:text-left sm:inline sm:w-auto orbitron tracking-wider" href="/">Vikas Potluri</a>
+			<input type="checkbox" id="nav-toggle" class="invisible sm:hidden absolute" />
+			<nav class="hidden text-center sm:block nav-collapsible">
+				<ul class="list-none sm:flex sm:space-x-4">
+					<li class="py-1 sm:py-0"><a href="/contact" class="link">Contact</a></li>
+					<li class="py-1 sm:py-0"><a href="/uses" class="link">Uses</a></li>
+					<li class="py-1 sm:py-0"><a href="/blog" class="link">Writing</a></li>
+					<li class="py-1 sm:py-0"><a href="https://archive.vikaspotluri.me" class="link">The Vault</a></li>
+				</ul>
+			</nav>
+			<label for="nav-toggle" class="sm:hidden nav-collapsible--icon"><svg class="mx-auto w-6 h-6 transition transition-all duration-100" fill="currentColor" role="img" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg></label>
 		</div>
-		<div class="gh-head-menu">
-			{{navigation}}
-		</div>
-		<div class="gh-head-actions">
-			<div class="gh-head-actions-list">
-				{{#if @site.facebook}}
-				<a href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
-				{{/if}}
-				{{#if @site.twitter}}
-				<a href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-				{{/if}}
-				<a href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
-			</div>
-		</div>
-	</nav>
-</header>
+	</header>
 
 <main class="gh-main">
 
