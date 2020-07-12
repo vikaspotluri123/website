@@ -8,6 +8,8 @@ Hey future Vikas, how you 'doin? It looks like you want to enable members on you
 
 1. Move `assets/css/ghost/members.css` to `_members-data`
 
+1. Move members-specific variables from `assets/css/vars.css` to `_members-data/removed-vars.css`
+
 1. Remove references to members components in `assets/css/screen.css`:
 
     a. @import "components/forms.css"; (after components/global.css)
