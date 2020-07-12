@@ -8,11 +8,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
 
-/* Base components */
-@import "vars.css";
-@import "components/global.css";
-
-/* Ghost components */
+@import "ghost/init.css";
 @import "ghost/content.css";
 @import "ghost/readmore.css";
 @import "ghost/errors.css";
