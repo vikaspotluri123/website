@@ -69,6 +69,14 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	@apply bg-gray-100;
 	@apply rounded;
 	@apply shadow;
+	@apply transition;
+	@apply transition-transform;
+	@apply ease-in-out;
+	@apply duration-500;
+}
+
+.gh-card:hover {
+	transform: scale(1.02);
 }
 
 .gh-card-link {
