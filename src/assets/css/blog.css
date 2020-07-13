@@ -22,10 +22,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	padding: 0 4vmin;
 }
 
-.gh-article {
-	padding: 8vmin 0;
-}
-
 .gh-postfeed {
 	padding: 8vmin 0;
 
@@ -175,12 +171,10 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	}
 }
 
-
 /* Post
 /* ---------------------------------------------------------- */
 
 .gh-header {
-	padding: 0 0 8vmin 0;
 	text-align: center;
 }
 
@@ -252,4 +246,21 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	.gh-author-meta {
 		font-size: 1.6rem;
 	}
+}
+
+.max-w-90ch {
+	max-width: 90ch;
+}
+
+.vp-prose {
+	@apply pt-8;
+	/* prose */
+	@apply mx-auto;
+	@apply text-left;
+	@apply px-4;
+	@apply max-w-90ch;
+}
+
+@screen lg {
+	@apply prose-lg;
 }
