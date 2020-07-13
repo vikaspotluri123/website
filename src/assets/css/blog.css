@@ -27,6 +27,11 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 .gh-postfeed {
 	padding: 8vmin 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 100px;
 }
 
 .gh-container {
@@ -58,13 +63,19 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Index
 /* ---------------------------------------------------------- */
 
-.gh-card:not(:first-child) {
-	margin: 8vmin auto 0;
+.gh-card {
+	flex: auto;
+	max-width: 525px;
+	@apply bg-gray-100;
+	@apply rounded;
+	@apply shadow;
 }
 
 .gh-card-link {
 	display: flex;
 	flex-direction: column;
+	@apply pb-8;
+	@apply h-full;
 }
 
 .gh-card-image {
@@ -84,14 +95,13 @@ production stylesheet in assets/built/screen.css using: gulp dev
 }
 
 .gh-card-content {
-	max-width: 720px;
-	margin: 0 auto;
-	text-align: center;
+	flex: 1;
 }
 
 .gh-card-content p {
 	margin: 1.2rem 0;
 	padding: 0 6vmin;
+	text-align: left;
 }
 
 .gh-card-content > strong {
