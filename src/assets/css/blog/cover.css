@@ -1,0 +1,21 @@
+.cover {
+	background-color: theme('colors.gray.900');
+	background-image: url('/assets/cross-bg.jpg');
+	min-height: 400px;
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.cover h1 {
+	@apply text-6xl;
+	@apply text-gray-100;
+	@apply my-5;
+}
+
+.cover p {
+	@apply text-xl;
+	@apply text-gray-300;
+}

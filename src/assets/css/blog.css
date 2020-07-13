@@ -9,6 +9,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* ---------------------------------------------------------- */
 
 @import "blog/init.css";
+@import "blog/cover.css";
 @import "blog/content.css";
 @import "blog/readmore.css";
 @import "blog/errors.css";
