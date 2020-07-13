@@ -5,6 +5,7 @@
 
 .gh-canvas {
 	display: grid;
+	@apply text-left;
 	grid-template-columns:
 		[full-start]
 		  minmax(calc(calc(100% - 1200px) / 2), 1fr)
@@ -99,9 +100,10 @@
 .gh-canvas > dl,
 .gh-canvas > p {
 	font-family: var(--font-serif);
-	font-weight: 400;
-	font-size: 2rem;
-	line-height: 1.6em;
+	@apply font-normal;
+	@apply text-base;
+	@apply leading-relaxed;
+	@apply text-gray-800;
 }
 
 .gh-content > ul,
@@ -139,7 +141,7 @@
 	.gh-canvas ul,
 	.gh-canvas dl,
 	.gh-canvas p {
-		font-size: 1.8rem;
+		@apply text-base;
 	}
 
 	.gh-content blockquote::before {
