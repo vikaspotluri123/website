@@ -3,6 +3,9 @@ module.exports = {
 		'./dist/**/*.html'
 	],
 	theme: {
+		container: {
+			center: true
+		},
 	extend: {
 			colors: {
 				white: '#ebebeb',
