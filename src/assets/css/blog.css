@@ -31,12 +31,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	gap: 100px;
 }
 
-.gh-container {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
 .gh-head-actions a {
 	display: inline-flex;
 	align-items: center;
@@ -246,6 +240,10 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	.gh-author-meta {
 		font-size: 1.6rem;
 	}
+}
+
+.container {
+	max-width: 1200px;
 }
 
 .max-w-90ch {

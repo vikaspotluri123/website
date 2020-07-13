@@ -1,13 +1,9 @@
 {{!< default}}
 
-<div class="gh-page">
-	<div class="gh-container">
-
+<div class="gh-page container">
 		{{#tag}}
 		<header class="gh-page-head">
-
 			<h1>{{name}}</h1>
-
 			<p>
 				{{#if description}}
 					{{description}}
@@ -19,17 +15,12 @@
 			{{#if feature_image}}
 				<img class="gh-page-image" src="{{feature_image}}" alt="{{name}}" />
 			{{/if}}
-
 		</header>
 		{{/tag}}
 
 		<div class="gh-postfeed">
 		{{#foreach posts visibility="all"}}
-
 			{{> "card"}} {{!-- partials/card.hbs --}}
-
 		{{/foreach}}
 		</div>
-
-	</div>
 </div>
