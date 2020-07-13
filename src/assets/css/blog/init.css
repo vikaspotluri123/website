@@ -139,43 +139,32 @@ h6 {
 }
 
 h1 {
-	font-size: 4.6rem;
-	letter-spacing: -0.5px;
-}
-@media (max-width: 500px) {
-	h1 {
-		font-size: 2.7rem;
-	}
+	@apply text-4xl;
+	@apply font-bold;
+	@apply text-gray-900;
+	@apply leading-none;
 }
 
 h2 {
-	font-size: 3.6rem;
-}
-@media (max-width: 500px) {
-	h2 {
-		font-size: 2.2rem;
-	}
+	@apply text-2xl;
+	@apply font-bold;
+	@apply text-gray-900;
+	@apply leading-tight;
 }
 
 h3 {
-	font-size: 3.2rem;
-}
-@media (max-width: 500px) {
-	h3 {
-		font-size: 1.8rem;
-	}
+	@apply text-xl;
+	@apply font-bold;
+	@apply text-gray-900;
+	@apply leading-tight;
 }
 
 h4 {
-	font-size: 2.6rem;
-}
+	@apply text-base;
+	@apply font-bold;
+	@apply text-gray-900;
+	@apply leading-normal;
 
-h5 {
-	font-size: 2.4rem;
-}
-
-h6 {
-	font-size: 2.2rem;
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */

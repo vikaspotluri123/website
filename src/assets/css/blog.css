@@ -77,7 +77,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 .gh-card-meta {
 	display: block;
 	margin: 0 0 1rem;
-	font-size: 1.4rem;
 	line-height: 1.2em;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
@@ -88,7 +87,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	max-width: 720px;
 	margin: 0 auto;
 	text-align: center;
-	font-size: 1.6rem;
 }
 
 .gh-card-content p {
@@ -145,7 +143,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 .gh-post-meta {
 	display: block;
 	margin: 0 0 1rem;
-	font-size: 1.4rem;
+	@apply text-sm;
 	letter-spacing: 0.5px;
 	text-transform: uppercase;
 	opacity: 0.8;
