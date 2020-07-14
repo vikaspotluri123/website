@@ -247,13 +247,8 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 .vp-prose {
 	@apply pt-8;
-	/* prose */
 	@apply mx-auto;
 	@apply text-left;
 	@apply px-4;
 	@apply max-w-90ch;
-}
-
-@screen lg {
-	@apply prose-lg;
 }
