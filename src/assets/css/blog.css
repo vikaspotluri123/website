@@ -18,17 +18,12 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Main - Your styles here! Edit below
 /* ---------------------------------------------------------- */
 
-.gh-page {
-	padding: 0 4vmin;
-}
-
 .gh-postfeed {
-	padding: 8vmin 0;
-
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 100px;
+	padding: 8vmin 2rem;
+	@apply flex;
+	@apply flex-wrap;
+	@apply content-center;
+	gap: 84px;
 }
 
 .gh-head-actions a {
