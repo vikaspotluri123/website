@@ -153,3 +153,11 @@ task('build', series(
 	'html:minify',
 	'html:inline'
 ));
+
+task('blog:zip', () => {
+	const zip = require('gulp-zip');
+
+	return src('./src/blog/**/*')
+		.pipe(zip('vikas-potluri-theme.zip'))
+		.pipe(dest('.'));
+});

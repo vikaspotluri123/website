@@ -6,12 +6,6 @@
 		"ghost": ">=3.0.0",
 		"ghost-api": "v3"
 	},
-	"scripts": {
-		"dev": "gulp",
-		"zip": "gulp zip",
-		"test": "gscan .",
-		"test:ci": "gscan --fatal --verbose ."
-	},
 	"author": {
 		"name": "Vikas Potluri",
 		"email": "me@vikaspotluri.me",
