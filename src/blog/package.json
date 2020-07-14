@@ -6,7 +6,6 @@
 		"ghost": ">=3.0.0",
 		"ghost-api": "v3"
 	},
-	"license": "MIT",
 	"scripts": {
 		"dev": "gulp",
 		"zip": "gulp zip",
@@ -18,12 +17,6 @@
 		"email": "me@vikaspotluri.me",
 		"url": "https://vikaspotluri.me"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/vikaspotluri123/website.git"
-	},
-	"bugs": "https://github.com/vikaspotluri123/website/issues",
-	"contributors": "https://github.com/vikaspotluri123/website/graphs/contributors",
 	"devDependencies": {
 		"beeper": "^2.0.0",
 		"gulp": "4.0.2",
@@ -31,9 +24,6 @@
 		"gulp-sourcemaps": "2.6.5",
 		"gulp-watch": "5.0.1"
 	},
-	"browserslist": [
-		"defaults"
-	],
 	"config": {
 		"posts_per_page": 15,
 		"image_sizes": {
