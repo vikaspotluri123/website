@@ -7,44 +7,34 @@
 }
 
 .gh-readmore-inner {
-	display: grid;
-	grid-gap: 8vmin;
-	grid-template-columns: 1fr 1fr;
-}
-
-.gh-readmore-prev {
-	justify-content: flex-end;
-	text-align: right;
+	@apply flex;
+	@apply flex-wrap;
+	@apply justify-around;
 }
 
 .gh-readmore a {
-	display: flex;
-	color: currentColor;
-	text-decoration: none;
+	@apply p-4;
+	@apply flex;
+	@apply text-current;
+	@apply no-underline;
+	@apply items-center;
+}
+
+.gh-readmore a:hover,
+.gh-readmore a:hover h4 {
+	@apply text-indigo-700;
 }
 
 .gh-readmore h4 {
-	width: 100%;
 	font-size: inherit;
 }
 
 .gh-readmore svg {
-	display: inline-block;
-	vertical-align: middle;
-	height: 1em;
+	@apply h-4;
 	margin: 0.15em 0 0;
 }
 
 .gh-readmore svg + h4,
 .gh-readmore h4 + svg {
 	margin-left: 2vmin;
-}
-
-@media (max-width: 700px) {
-	.gh-readmore {
-		font-size: 1.6rem;
-	}
-	.gh-readmore svg {
-		margin: 0.1em 0 0;
-	}
 }
