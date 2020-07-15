@@ -117,7 +117,9 @@ task('blog:build', async () => {
 				process.env.NODE_ENV === 'production' ?
 					replace('<!-- live_reload -->', '') :
 					replace('<!-- live_reload -->', '')
-			).pipe(dest('dist-blog'))
+			)
+			.pipe(minify)
+			.pipe(dest('dist-blog'))
 		)
 	])
 });
