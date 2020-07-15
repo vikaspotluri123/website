@@ -34,6 +34,60 @@ async function readAllAssets(type, assets) {
 	return Promise.all(promises);
 }
 
+function inlineAsset(fullMatch, fullAsset, tagName, knownAssets) {
+	let asset = fullAsset.toLowerCase().match(/{{\s?asset/i) ?
+		fullAsset.match(/'(?<path>.*?)'/).groups.path : fullAsset;
+
+	if (!asset) {
+		console.error('Failed parsing asset location: %s', asset);
+		return fullMatch;
+	}
+
+	asset = asset.replace(/^\//, '');
+
+	const contents = knownAssets.get(asset);
+	if (contents === undefined) {
+		console.warn('Invalid asset referenced: %s', asset);
+		return '';
+	}
+
+	if (contents === FILE_TO_LARGE) {
+		console.warn('Not inlining %s because it is too large', asset);
+		return fullMatch;
+	}
+
+	if (contents === '') {
+		console.warn('Empty asset: %s', asset);
+		return '';
+	}
+
+	return `<${tagName}>${contents}</${tagName}>`;
+};
+
+/**
+ * @param {string} inputGlob
+ * @param {string} outputDir
+ * @param {Map<string, string>} knownFiles
+ */
+function inlineAssetGlob(inputGlob, outputDir, knownFiles) {
+	const replace = require('gulp-replace');
+	return promisifyStream(
+		src(inputGlob, {allowEmpty: true})
+		// The first expression will capture styles, second scripts
+		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (tag, asset) => {
+			if (tag.includes('rel') && !tag.includes('stylesheet')) {
+				return tag;
+			}
+
+			return inlineAsset(tag, asset, 'style', knownFiles);
+		}))
+		.pipe(replace(/<script[^>]+?src="(.*?)"[^>]*><\/script>/g, (tag, asset) => {
+			return inlineAsset(tag, asset, 'script', knownFiles);
+		}))
+		.pipe(dest(outputDir))
+	);
+}
+
 task('enableProdMode', () => {
 	process.env.NODE_ENV = 'production';
 	return Promise.resolve();
@@ -88,8 +142,7 @@ task('html:minify', () => {
 		.pipe(dest('./dist'));
 });
 
-task('html:inline', async callback => {
-	const replace = require('gulp-replace');
+task('html:inline', async () => {
 	const assets = new Map();
 
 	await Promise.all([
@@ -97,40 +150,10 @@ task('html:inline', async callback => {
 		readAllAssets('css', assets),
 	]);
 
-	const handleAsset = (asset, tag) => {
-		const contents = assets.get(asset.replace(/^\//, ''));
-		if (contents === undefined) {
-				console.warn('Invalid asset referenced: %s', asset);
-				return '';
-			}
-
-			if (contents === FILE_TO_LARGE) {
-				console.warn('Not inlining %s because it is too large', asset);
-				return tag;
-			}
-
-			if (contents === '') {
-				console.warn('Empty asset: %s', asset);
-				return '';
-			}
-
-			return `<${tag}>${contents}</${tag}>`;
-	};
-
-	src('./dist/*.html')
-		// The first expression will capture styles, second scripts
-		.pipe(replace(/<link[^>]+?href="(.*?)"[^>]+>/g, (tag, asset) => {
-			if (tag.includes('rel') && !tag.includes('stylesheet')) {
-				return tag;
-			}
-
-			return handleAsset(asset, 'style');
-		}))
-		.pipe(replace(/<script[^>]+?src="(.*?)"[^>]*><\/script>/g, (tag, asset) => {
-			return handleAsset(asset, 'script');
-		}))
-		.pipe(dest('./dist'))
-		.on('end', () => callback());
+	return Promise.all([
+		inlineAssetGlob('./dist/*.html', './dist', assets),
+		inlineAssetGlob('./dist-blog/default.hbs', './dist-blog', assets)
+	]);
 });
 
 task('default', series(parallel(['html', 'binaries', 'js']), 'css'));
@@ -161,9 +184,23 @@ task('build', series(
 ));
 
 task('blog:build', async () => {
+	const replace = require('gulp-replace');
+
 	return Promise.all([
 		promisifyStream(
-			src(['src/blog/**/*.hbs', '!src/blog/_members-data/**/*', '!src/blog/default.hbs']).pipe(dest('dist-blog'))
+			src([
+				'src/blog/**/*.hbs',
+				'!src/blog/_members-data/**/*',
+				'!src/blog/default.hbs'
+			]).pipe(
+				dest('dist-blog')
+			)
+		),
+
+		promisifyStream(
+			src('src/blog/default.hbs').pipe(
+				process.env.NODE_ENV === 'production' ? replace('<!-- live_reload -->', '') : replace('<!-- live_reload -->', '')
+			).pipe(dest('dist-blog'))
 		)
 	])
 });
