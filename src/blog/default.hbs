@@ -4,8 +4,8 @@
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{asset "vikas-global.css"}}" />
-	<link rel="stylesheet" type="text/css" href="{{asset "blog.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset 'css/global.css'}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset 'css/blog.css'}}" />
 
 	<title>{{meta_title}}</title>
 
@@ -56,11 +56,11 @@
 <script>
 	var maxPages = parseInt('{{pagination.pages}}');
 </script>
-<script src="{{asset "infinite-scroll.js"}}"></script>
+<script src="{{asset 'js/infinite-scroll.js'}}"></script>
 {{/if}}
 
 {{#is "post, page"}}
-<script src="{{asset "js/reframe.js"}}"></script>
+<script src="{{asset 'js/reframe.js'}}"></script>
 <script defer>
 var images = document.querySelectorAll('.kg-gallery-image img');
 images.forEach(function (image) {
