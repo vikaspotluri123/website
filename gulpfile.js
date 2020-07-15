@@ -6,6 +6,12 @@ let eleventy;
 const FILE_TO_LARGE = Symbol('file is too large');
 const INLINE_THRESHOLD = 20_000; // Don't inline anything over ~20k
 
+function promisifyStream(stream) {
+	return new Promise((resolve, reject) => {
+		stream.on('finish', resolve).on('error', reject)
+	});
+}
+
 async function readAllAssets(type, assets) {
 	const readdirp = require('readdirp');
 	const fs = require('fs').promises;
@@ -153,6 +159,14 @@ task('build', series(
 	'html:minify',
 	'html:inline'
 ));
+
+task('blog:build', async () => {
+	return Promise.all([
+		promisifyStream(
+			src(['src/blog/**/*.hbs', '!src/blog/_members-data/**/*', '!src/blog/default.hbs']).pipe(dest('dist-blog'))
+		)
+	])
+});
 
 task('blog:zip', () => {
 	const zip = require('gulp-zip');
