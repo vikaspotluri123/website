@@ -49,12 +49,9 @@ task('binaries', () => {
 });
 
 task('html:minify', () => {
-	const minify = require('gulp-htmlmin');
+	const minify = require('./gulp/minify');
 	return src('./dist/*.html')
-		.pipe(minify({
-			keepClosingSlash: true,
-			collapseWhitespace: true
-		}))
+		.pipe(minify)
 		.pipe(dest('./dist'));
 });
 
@@ -102,6 +99,7 @@ task('build', series(
 
 task('blog:build', async () => {
 	const replace = require('gulp-replace');
+	const minify = require('./gulp/minify');
 
 	return Promise.all([
 		promisifyStream(
@@ -109,14 +107,16 @@ task('blog:build', async () => {
 				'src/blog/**/*.hbs',
 				'!src/blog/_members-data/**/*',
 				'!src/blog/default.hbs'
-			]).pipe(
-				dest('dist-blog')
-			)
+			])
+			.pipe(minify)
+			.pipe(dest('dist-blog'))
 		),
 
 		promisifyStream(
 			src('src/blog/default.hbs').pipe(
-				process.env.NODE_ENV === 'production' ? replace('<!-- live_reload -->', '') : replace('<!-- live_reload -->', '')
+				process.env.NODE_ENV === 'production' ?
+					replace('<!-- live_reload -->', '') :
+					replace('<!-- live_reload -->', '')
 			).pipe(dest('dist-blog'))
 		)
 	])
