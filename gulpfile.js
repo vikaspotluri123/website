@@ -48,14 +48,14 @@ task('binaries', () => {
 		.pipe(dest('./dist'));
 });
 
-task('html:minify', () => {
+task('markup:minify', () => {
 	const minify = require('./gulp/minify');
 	return src('./dist/*.html')
 		.pipe(minify)
 		.pipe(dest('./dist'));
 });
 
-task('html:inline', async () => {
+task('markup:inline', async () => {
 	const {readAllAssets, inlineAssetGlob} = require('./gulp/asset-inliner');
 	const assets = new Map();
 
@@ -93,8 +93,8 @@ task('dev', series('default', function devServer() {
 task('build', series(
 	'enableProdMode',
 	'default',
-	'html:minify',
-	'html:inline'
+	'markup:minify',
+	'markup:inline'
 ));
 
 task('blog:build', async () => {
