@@ -39,7 +39,11 @@ task('html', async () => {
 		await eleventy.init();
 	}
 
-	await eleventy.write();
+	await Promise.all([
+		eleventy.write(),
+		src(['src/blog/**/*.hbs', '!src/blog/_members-data/**/*']).pipe(dest('./dist-blog/'))
+	]);
+
 	eleventy.writer.writeCount = 0;
 });
 
@@ -50,9 +54,10 @@ task('binaries', () => {
 
 task('markup:minify', () => {
 	const minify = require('./gulp/minify');
-	return src('./dist/*.html')
-		.pipe(minify)
-		.pipe(dest('./dist'));
+	return Promise.all([
+		promisifyStream(src('./dist/*.html').pipe(minify).pipe(dest('./dist'))),
+		promisifyStream(src('./blog-dist/**/*.hbs').pipe(minify).pipe(dest('./dist-blog')))
+	]);
 });
 
 task('markup:inline', async () => {
@@ -96,33 +101,6 @@ task('build', series(
 	'markup:minify',
 	'markup:inline'
 ));
-
-task('blog:build', async () => {
-	const replace = require('gulp-replace');
-	const minify = require('./gulp/minify');
-
-	return Promise.all([
-		promisifyStream(
-			src([
-				'src/blog/**/*.hbs',
-				'!src/blog/_members-data/**/*',
-				'!src/blog/default.hbs'
-			])
-			.pipe(minify)
-			.pipe(dest('dist-blog'))
-		),
-
-		promisifyStream(
-			src('src/blog/default.hbs').pipe(
-				process.env.NODE_ENV === 'production' ?
-					replace('<!-- live_reload -->', '') :
-					replace('<!-- live_reload -->', '')
-			)
-			.pipe(minify)
-			.pipe(dest('dist-blog'))
-		)
-	])
-});
 
 task('blog:zip', () => {
 	const zip = require('gulp-zip');
