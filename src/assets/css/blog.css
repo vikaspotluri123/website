@@ -241,6 +241,10 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	max-width: 1200px;
 }
 
+.container--lg {
+	max-width: theme('screens.xl');
+}
+
 .max-w-90ch {
 	max-width: 90ch;
 }
