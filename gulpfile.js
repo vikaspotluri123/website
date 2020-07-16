@@ -1,8 +1,13 @@
 // @ts-check
 const {task, src, dest, parallel, series, watch} = require('gulp');
+const getWatcher = require('./gulp/watcher');
 const promisifyStream = require('./gulp/promisify-stream');
 let eleventy;
 
+function copyChangedMarkupFile(path) {
+	let destination = path.includes('blog') ? './dist-blog/' : './dist';
+	return src(path).pipe(dest(destination));
+}
 
 task('enableProdMode', () => {
 	process.env.NODE_ENV = 'production';
@@ -78,21 +83,12 @@ task('markup:inline', async () => {
 task('default', series(parallel(['html', 'binaries', 'js']), 'css'));
 
 task('dev', series('default', function devServer() {
-	const liveReload = require('browser-sync');
+	const liveReload = getWatcher();
 	const reload = () => liveReload.reload();
 	watch('./src/**/*.css', series('css')).on('change', reload);
 	watch('./src/**/*.js', series('js')).on('change', reload);
-	watch(['./src/**/*.hbs', './src/**/*.md'], series('html')).on('change', reload);
+	watch(['./src/**/*.hbs', './src/**/*.md']).on('change', copyChangedMarkupFile).on('change', reload);
 	watch(['./src/assets/font/**/*', './src/assets/img/**/*'], series('binaries')).on('change', reload);
-
-	liveReload.init({
-		server: {
-			baseDir: './dist/'
-		},
-		watch: false,
-		open: false,
-		notify: false
-	})
 }));
 
 task('build', series(
