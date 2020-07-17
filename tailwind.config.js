@@ -13,6 +13,17 @@ module.exports = {
 				black: '#4F4F4F'
 			}
 		},
+		typography(theme) {
+			return {
+				default: {
+					css: {
+						hr: {
+							borderColor: theme('colors.black')
+						}
+					}
+				}
+			};
+		}
   },
   variants: {},
   plugins: [
