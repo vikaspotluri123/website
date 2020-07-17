@@ -37,7 +37,7 @@ task('css', () => {
 		.pipe(dest('dist/css'));
 });
 
-task('html', async () => {
+task('markup', async () => {
 	if (!eleventy) {
 		const Eleventy = require('@11ty/eleventy');
 		eleventy = new Eleventy('./src', './dist');
@@ -80,7 +80,7 @@ task('markup:inline', async () => {
 	]);
 });
 
-task('default', series(parallel(['html', 'binaries', 'js']), 'css'));
+task('default', series(parallel(['markup', 'binaries', 'js']), 'css'));
 
 task('dev', series('default', function devServer() {
 	const liveReload = getWatcher();
