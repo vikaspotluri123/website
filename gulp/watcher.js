@@ -21,6 +21,9 @@ module.exports = function getLiveReloadInstance(bsOverrides = {}) {
 
 	instance = liveReload.init({
 		server: './dist/',
+		snippetOptions: {
+			ignorePaths: 'blog/ghost*'
+		},
 		watch: false,
 		open: false,
 		notify: false,
