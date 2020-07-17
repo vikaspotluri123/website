@@ -14,15 +14,21 @@ task('enableProdMode', () => {
 	return Promise.resolve();
 });
 
-task('js', () => new Promise((resolve, reject) => {
-	const {spawn} = require('child_process');
+task('js', function () {
+	const rollup = new Promise((resolve, reject) => {
+		const {spawn} = require('child_process');
 
-	const cp = spawn('yarn', ['rollup', '-c'], {stdio: 'inherit'});
+		const cp = spawn('yarn', ['rollup', '-c'], {stdio: 'inherit'});
 
-	cp.on('exit', code => {
-		code === 0 ? resolve(code) : reject(code);
+		cp.on('exit', code => {
+			code === 0 ? resolve(code) : reject(code);
+		});
 	});
-}));
+
+	const built = promisifyStream(src('./src/assets/js/built/**/*.js').pipe(dest('./dist/js')))
+
+	return Promise.all([built, rollup]);
+});
 
 task('css', () => {
 	const postcss = require('gulp-postcss');
