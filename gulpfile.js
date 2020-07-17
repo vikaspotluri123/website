@@ -26,15 +26,28 @@ task('js', () => new Promise((resolve, reject) => {
 
 task('css', () => {
 	const postcss = require('gulp-postcss');
+	const globalPostcssPlugins = [
+		require('autoprefixer'),
+		...process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
+	];
 
-	return src('./src/assets/css/*.css')
-		.pipe(postcss([
-			require('postcss-import'),
-			require('tailwindcss'),
-			require('autoprefixer'),
-			... process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
-		]))
-		.pipe(dest('dist/css'));
+	return Promise.all([
+		promisifyStream(
+			src(['./src/assets/css/*.css', '!./src/assets/css/prose.css'])
+				.pipe(postcss([
+					require('postcss-import'),
+					require('tailwindcss'),
+					...globalPostcssPlugins
+				]))
+				.pipe(dest('dist/css'))
+		),
+
+		promisifyStream(
+			src('./src/assets/css/prose.css')
+				.pipe(postcss(globalPostcssPlugins))
+				.pipe(dest('dist/css'))
+		)
+	]);
 });
 
 task('markup', async () => {

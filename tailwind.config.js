@@ -1,6 +1,6 @@
 module.exports = {
 	purge: [
-		'./src/assets/blog/**/*.hbs',
+		'./dist-blog/**/*.hbs',
 		'./dist/**/*.html'
 	],
 	theme: {
@@ -24,11 +24,11 @@ module.exports = {
 				}
 			};
 		}
-  },
-  variants: {},
-  plugins: [
-		require('@tailwindcss/typography')({
+	},
+	variants: {},
+	plugins: [
+		/* require('@tailwindcss/typography')({
 			modifiers: ['lg']
-		})
+		}) */
 	],
 }
