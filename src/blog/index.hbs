@@ -1,11 +1,13 @@
 {{!< default}}
 
-<div class="cover">
-	<h1>Vikas' Writing</h1>
-	<p>Musings and shenanigans</p>
+<div class="cover" style="z-index:-1">
+	<div class="cover-content">
+		<h1>Vikas' Writing</h1>
+		<p>Musings and shenanigans</p>
+	</div>
 </div>
 
-<div class="container">
+<div class="container bg-white relative">
 	<div class="gh-postfeed">
 	{{#foreach posts visibility="all"}}
 		{{> "card"}} {{!-- partials/card.hbs --}}
