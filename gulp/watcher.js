@@ -29,7 +29,7 @@ module.exports = function getLiveReloadInstance(bsOverrides = {}) {
 		notify: false,
 		middleware: [(req, res, next) => {
 			// NOTE: we can't do BS-path matching because the url can't be re-written
-			req.url = req.url.startsWith('/blog/assets') ? req.url.replace('/blog/assets', '') : req.url;
+			req.url = req.url.startsWith('/blog/assets') && !req.url.includes('cross-bg') ? req.url.replace('/blog/assets', '') : req.url;
 			next();
 		}, {
 			route: '/blog',

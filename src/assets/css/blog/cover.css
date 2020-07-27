@@ -1,6 +1,6 @@
 .cover {
 	background-color: theme('colors.gray.900');
-	background-image: url('/assets/cross-bg.jpg');
+	background-image: url('/blog/assets/cross-bg.jpg');
 	min-height: 400px;
 	height: 50vh;
 	display: flex;
