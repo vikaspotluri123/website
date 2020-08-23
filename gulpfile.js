@@ -123,7 +123,7 @@ task('build', series(
 task('blog:zip', () => {
 	const zip = require('gulp-zip');
 
-	return src('./src/blog/**/*')
+	return src('./src/dist-blog/**/*')
 		.pipe(zip('vikas-potluri-theme.zip'))
 		.pipe(dest('.'));
 });
