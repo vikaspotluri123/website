@@ -3,11 +3,9 @@ on:
   push:
     branches:
       - master
-      - blog
 jobs:
   deploy:
     runs-on: ubuntu-18.04
-    if: "!github.event.after && git diff github.event.before --name-only | egrep '(scripts|styles|src)' --silent"
     steps:
       - uses: actions/checkout@master
       - name: Deploy Ghost Theme
