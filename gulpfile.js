@@ -9,6 +9,8 @@ function copyChangedMarkupFile(path) {
 	return src(path).pipe(dest(destination));
 }
 
+task('clean', () => require('del')('./dist*'));
+
 task('enableProdMode', () => {
 	process.env.NODE_ENV = 'production';
 	return Promise.resolve();
