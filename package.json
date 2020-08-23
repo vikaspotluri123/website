@@ -10,20 +10,28 @@
   "homepage": "https://vikaspotluri.me",
   "scripts": {
     "dev": "gulp dev",
-    "build": "gulp build"
+    "build": "gulp build",
+    "blog:test": "gscan src/blog",
+    "blog:test:ci": "gscan --fatal --verbose src/blog",
+    "blog:zip": "gulp blog:zip"
   },
   "dependencies": {
-    "cssnano": "^4.1.10",
-    "gulp-htmlmin": "^5.0.1",
+    "@tailwindcss/typography": "^0.1.2",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
     "autoprefixer": "^9.8.4",
     "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gscan": "^3.5.4",
     "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-postcss": "^8.0.0",
     "gulp-replace": "^1.0.0",
+    "gulp-zip": "^5.0.2",
+    "http-proxy-middleware": "^1.0.5",
     "postcss-import": "^12.0.1",
     "readdirp": "^3.4.0",
     "rollup": "^2.21.0",

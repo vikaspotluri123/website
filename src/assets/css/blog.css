@@ -1,0 +1,258 @@
+/*
+
+This is a development CSS file which is compiled to a minified
+production stylesheet in assets/built/screen.css using: gulp dev
+
+*/
+
+/* Lib - Local component imports
+/* ---------------------------------------------------------- */
+
+@import "blog/init.css";
+@import "blog/cover.css";
+@import "blog/content.css";
+@import "blog/readmore.css";
+@import "blog/errors.css";
+
+
+/* Main - Your styles here! Edit below
+/* ---------------------------------------------------------- */
+
+.gh-postfeed {
+	padding: 8vmin 2rem;
+	@apply flex;
+	@apply flex-wrap;
+	@apply content-center;
+	gap: 84px;
+}
+
+.gh-head-actions a {
+	display: inline-flex;
+	align-items: center;
+	margin: 0;
+	padding: 10px;
+}
+
+.gh-head-actions a svg {
+	height: 1.8rem;
+	fill: currentcolor;
+}
+
+.gh-head-actions a:first-child svg {
+	margin-left: 20px;
+}
+
+.gh-head-actions a:last-child svg {
+	height: 2rem;
+}
+
+/* Index
+/* ---------------------------------------------------------- */
+
+.gh-card {
+	flex: auto;
+	max-width: 525px;
+	max-height: 700px;
+	@apply bg-gray-100;
+	@apply rounded;
+	@apply shadow;
+	transform: skew(2.5deg);
+}
+
+.gh-card,
+.gh-card .gh-card-content {
+	@apply transition;
+	@apply transition-transform;
+	@apply ease-in-out;
+	@apply duration-500;
+}
+
+.gh-card:nth-child(4n - 1),
+.gh-card:nth-child(4n) {
+	transform: skew(-2.5deg);
+}
+
+.gh-card .gh-card-content {
+	transform: skew(-2.5deg);
+}
+
+.gh-card:nth-child(4n - 1) .gh-card-content,
+.gh-card:nth-child(4n) .gh-card-content {
+	transform: skew(2.5deg);
+}
+
+.gh-card:hover,
+.gh-card:hover .gh-card-content {
+	transform: skew(0)
+}
+
+.gh-card:hover {
+	transform: skew(0) scale(1.02);
+}
+
+.gh-card-link {
+	display: flex;
+	flex-direction: column;
+	@apply pb-8;
+	@apply h-full;
+}
+
+.gh-card-image {
+	width: 100%;
+	max-height: 350px;
+	object-fit: cover;
+	margin-bottom: 4vmin;
+}
+
+.gh-card-meta {
+	display: block;
+	margin: 0 0 1rem;
+	line-height: 1.2em;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	opacity: 0.8;
+}
+
+.gh-card-content {
+	flex: 1;
+}
+
+.gh-card-content p {
+	margin: 1.2rem 0;
+	padding: 0 6vmin;
+	text-align: left;
+}
+
+.gh-card-content > strong {
+	display: inline-block;
+	padding: 1px 0;
+	font-weight: 500;
+	box-shadow: 0 -1px 0 0 inset currentColor;
+	opacity: 0.5;
+}
+
+
+/* Page
+/* ---------------------------------------------------------- */
+
+.gh-page-head {
+	margin: 0 auto;
+	padding: 8vmin 0 4vmin;
+	text-align: center;
+}
+
+.gh-page-image {
+	margin: 4vmin 0 0 0;
+}
+
+.gh-page-head > p {
+	max-width: 720px;
+	margin: 0.3em auto 0;
+	padding: 0 6vmin;
+	font-size: 1.3em;
+	line-height: 1.4em;
+	opacity: 0.5;
+}
+
+@media (max-width: 700px) {
+	.gh-page-head > p {
+		font-size: 1.6rem;
+	}
+}
+
+/* Post
+/* ---------------------------------------------------------- */
+
+.gh-header {
+	text-align: center;
+}
+
+.gh-post-meta {
+	display: block;
+	margin: 0 0 1rem;
+	@apply text-sm;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	opacity: 0.8;
+}
+
+.gh-excerpt {
+	margin: 1rem 0 0 0;
+}
+
+.gh-feature-image {
+	grid-column: wide-start / wide-end;
+	width: 100%;
+	margin: 8vmin 0 0;
+}
+
+.gh-post-footer {
+	margin: 2rem 0;
+}
+
+
+/* Author Archive
+/* ---------------------------------------------------------- */
+
+.gh-author-image {
+	height: 12vmin;
+	width: 12vmin;
+	margin: 0 auto 1.5em;
+	border-radius: 100%;
+	overflow: hidden;
+	object-fit: cover;
+}
+
+.gh-author-meta {
+	margin: 2vmin 0 0 0;
+	font-size: 1.2em;
+}
+
+.gh-author-links {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.gh-author-links a {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	margin: 0 0.75vmin;
+}
+
+.gh-author-links a + a:before {
+	display: block;
+	content: "";
+	margin: 0 1.25vmin 0 0;
+	height: 1em;
+	width: 1px;
+	background: rgba(0,0,0,0.3);
+	transform: rotate(20deg);
+}
+
+@media (max-width: 700px) {
+	.gh-author-meta {
+		font-size: 1.6rem;
+	}
+}
+
+.container {
+	max-width: 1200px;
+}
+
+.container--lg {
+	max-width: theme('screens.xl');
+}
+
+.max-w-90ch {
+	max-width: 90ch;
+}
+
+.vp-prose {
+	@apply pt-8;
+	@apply mx-auto;
+	@apply text-left;
+	@apply px-4;
+	@apply max-w-90ch !important;
+}

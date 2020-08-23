@@ -1,0 +1,20 @@
+{{!< default}}
+
+{{#post}}
+<article class="prose vp-prose lg:prose-lg {{post_class}}">
+	<header class="gh-header gh-canvas">
+		<h1>{{title}}</h1>
+
+		{{#if custom_excerpt}}
+			<p class="gh-excerpt">{{custom_excerpt}}</p>
+		{{/if}}
+
+		{{#if feature_image}}
+			<img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+		{{/if}}
+	</header>
+	<div class="main-content-area">
+		{{content}}
+	</div>
+</article>
+{{/post}}

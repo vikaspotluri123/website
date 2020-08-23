@@ -26,7 +26,7 @@ async function buildConfig() {
 	const config = [];
 
 	for (const file of files) {
-		if (file === 'components') {
+		if (file === 'components' || file === 'built') {
 			continue;
 		}
 
