@@ -23,6 +23,8 @@ jobs:
         run: yarn build
       - name: Zip Theme
         run: yarn blog:zip
+      - name: Debug fs
+        run: ls -alR
       - uses: actions/checkout@master
       - name: Deploy Ghost Theme
         uses: TryGhost/action-deploy-theme@v1.4.1
