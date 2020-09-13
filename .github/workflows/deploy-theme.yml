@@ -27,6 +27,10 @@ jobs:
       - name: Deploy Ghost Theme
         run: |
           # Token generation based on https://github.com/TryGhost/Ghost-SDK/blob/0b4db41bbe944bf6fe03e764de58be856fb5dc34/packages/admin-api/lib/token.js
+          ls -al .
+          ls -al node_modules/
+          ls -al node_modules/jsonwebtoken/index.js
+          env
           TOKEN=`node -e "const [keyid, secret] = '$API_KEY'.split(':'); console.log(require('./node_modules/jsonwebtoken/index.js').sign({}, Buffer.from(secret, 'hex'), {keyid, algorithm: 'HS256', expiresIn: '5m', audience: '/v3/admin/'}));"`
           curl -H "Authorization: Ghost $TOKEN" -F "file=@./vikas-potluri-theme.zip" $API_BASE/ghost/api/v3/admin/themes/upload/ --silent > /dev/null
         env:
