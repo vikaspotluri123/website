@@ -32,6 +32,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-zip": "^5.0.2",
     "http-proxy-middleware": "^1.0.5",
+    "jsonwebtoken": "^8.5.1",
     "postcss-import": "^12.0.1",
     "readdirp": "^3.4.0",
     "rollup": "^2.26.11",
