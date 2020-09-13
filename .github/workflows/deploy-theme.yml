@@ -23,12 +23,6 @@ jobs:
         run: yarn build
       - name: Zip Theme
         run: yarn blog:zip
-      - name: Debug fs
-        run: ls -al /home/runner/work/website/website/vikas-potluri-theme.zip
-      - name: Debug fs
-        run: ls -al .
-      - name: pwd
-        run: pwd
       - uses: actions/checkout@master
       - name: Deploy Ghost Theme
         run: |
