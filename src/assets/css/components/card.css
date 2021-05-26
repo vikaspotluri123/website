@@ -43,7 +43,7 @@
 	@apply list-disc;
 	@apply px-6;
 	@apply mt-4;
-	@apply font-hairline;
+	@apply font-thin;
 	@apply tracking-wide;
 }
 

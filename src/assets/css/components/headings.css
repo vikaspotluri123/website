@@ -1,7 +1,7 @@
 .h2 {
 	@apply text-4xl;
 	@apply text-left;
-	@apply font-hairline;
+	@apply font-thin;
 	@apply mb-2;
 }
 
