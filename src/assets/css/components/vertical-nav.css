@@ -22,7 +22,7 @@
 	@apply items-center;
 	@apply justify-center;
 	@apply h-8;
-	@apply text-black;
+	color: var(--fg-primary);
 	/* This transform makes the navigation visible.
 	 *   We rotate 90 degrees to make it a vertical navigation
 	 *   We offset it -1rem in the X direction to line it up with its parent

@@ -2,10 +2,10 @@
 	@apply w-full;
 	@apply my-6;
 	@apply border;
-	@apply border-black;
 	@apply rounded;
 	@apply px-2;
 	@apply relative;
+	border-color: var(--bg-primary);
 }
 
 .fancy-input--label {
@@ -28,12 +28,12 @@
 	@apply block;
 	@apply w-full;
 	@apply bg-gray-200;
-	@apply text-black;
 	@apply rounded;
 	@apply py-3;
 	@apply px-4;
 	@apply my-4;
 	@apply leading-tight;
+	color: var(--fg-primary);
 }
 
 .fancy-input--input::placeholder {

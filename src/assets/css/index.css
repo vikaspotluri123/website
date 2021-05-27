@@ -1,8 +1,24 @@
 @import './components/vertical-nav.css';
 @import './components/card.css';
 
+:root {
+	--hero-bg-start: #00d2ff;
+	--hero-bg-end: #4550c6;
+	--verb-color: #e9ff1f;
+}
+
+:root.dark {
+	/* background: linear-gradient(240deg, #460957 0, #A414CC 100%), #460957; */
+	--hero-bg-start: #74248a;
+	--hero-bg-end: #460957;
+}
+
 #hero {
-	background: linear-gradient(240deg, #00d2ff 0, #4550c6 100%), #00D2FF;
+	background: linear-gradient(
+		240deg,
+		var(--hero-bg-start) 0,
+		var(--hero-bg-end) 100%
+	), var(--hero-bg-start);
 	min-height: calc(100vh - theme('spacing.12'));
 	/* clip-path: polygon(0 0, 100% 0, 100% calc(100vh - 10vh), 0% 100%) */
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100vh - 15vh))
@@ -27,7 +43,7 @@
 
 #verb {
 	@apply inline-block;
-	color: rgb(233, 255, 31);
+	color: var(--verb-color);
 	transition: opacity 500ms ease;
 	opacity: 1;
 }

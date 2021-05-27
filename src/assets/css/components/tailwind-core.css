@@ -5,11 +5,27 @@
 :root {
 	--white: #ebebeb;
 	--black: #4F4F4F;
+
+	--bg-primary: var(--white);
+	--fg-primary: var(--black);
+}
+
+:root.dark {
+	--bg-primary: #032026;
+	--fg-primary: #EEEADC;
+}
+
+.text-primary {
+	color: var(--fg-primary);
+}
+
+.bg-primary {
+	background: var(--bg-primary);
 }
 
 body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	background-color: var(--white);
+	background-color: var(--bg-primary);
 	@apply flex;
 	@apply min-h-screen;
 	@apply flex-col;
@@ -20,7 +36,13 @@ main {
 }
 
 .nav-bg {
+	/* background: linear-gradient(240deg, rgb(0, 210, 255) 0, rgb(69, 80, 198) 100%), #00D2FF; */
 	background: linear-gradient(240deg, rgba(0, 169, 255, 0.7) 0, rgba(0, 0, 169, 0.7) 100%), #00a9ff;
+}
+
+.dark .nav-bg {
+	/* background: linear-gradient(240deg, rgb(70, 9, 87) 0, rgb(164, 20, 204) 100%), #460957; */
+	background: linear-gradient(240deg, rgba(49, 0, 98, 0.7) 0, rgba(50, 0, 169, 0.7) 100%), #1d0957;
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
