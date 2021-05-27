@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script>
+		const theme = localStorage.getItem('theme');
+		window.systemThemeMatch = window.matchMedia('(prefers-color-scheme: dark)');
+		// CASE: User has explicitly requested dark theme
+		// CASE: User has not explicitly selected theme, but they prefer dark theme
+		if (theme === 'dark' || (!theme && window.systemThemeMatch.matches)) {
+			document.documentElement.classList.add('dark');
+		}
+	</script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,6 +65,7 @@
 					<li class="py-1 sm:py-0"><a href="/uses" class="link">Uses</a></li>
 					<li class="py-1 sm:py-0"><a href="/blog" class="link">Writing</a></li>
 					<li class="py-1 sm:py-0"><a href="https://archive.vikaspotluri.me" class="link">The Vault</a></li>
+					<li class="py-1 sm:py-0"><button id="theme-switcher">Switch Theme</button></li>
 				</ul>
 			</nav>
 			<label for="nav-toggle" class="sm:hidden nav-collapsible--icon"><svg class="mx-auto w-6 h-6 transition transition-all duration-100" fill="currentColor" role="img" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg></label>
@@ -74,5 +84,6 @@
 		</div>
 		<span class="copyright">&copy; {{copyright}} Vikas Potluri. All rights reserved.</span>
 	</footer>
+	<script src="/js/theme-switcher.js"></script>
 </body>
 </html>
