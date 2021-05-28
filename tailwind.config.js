@@ -3,6 +3,7 @@ module.exports = {
 		'./dist-blog/**/*.hbs',
 		'./dist/**/*.html'
 	],
+	darkMode: 'class',
 	theme: {
 		container: {
 			center: true
