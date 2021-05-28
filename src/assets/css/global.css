@@ -21,18 +21,6 @@
 	padding-top: theme('spacing.12');
 }
 
-nav a.active.link:before {
-	background: radial-gradient(var(--yellow), var(--green), var(--blue), var(--purple));
-	border-radius: 50%;
-	content: '';
-	height: 0.5em;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 0.5em;
-	z-index: -1;
-}
-
 .clip-arrow {
 	@apply py-32;
 	min-height: 30vh;

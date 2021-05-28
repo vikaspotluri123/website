@@ -36,6 +36,18 @@
 	@apply pb-1;
 }
 
+.link.active:before {
+	background: radial-gradient(var(--yellow), var(--green), var(--blue), var(--purple));
+	border-radius: 50%;
+	content: '';
+	height: 0.5em;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0.5em;
+	z-index: -1;
+}
+
 .link:after {
 	content: '';
 	@apply rounded;
