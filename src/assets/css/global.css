@@ -22,7 +22,7 @@
 }
 
 nav a.active.link:before {
-	background: radial-gradient(#e5e1ab, #9cdcaa, #96caf7, #bfb2f3);
+	background: radial-gradient(var(--yellow), var(--green), var(--blue), var(--purple));
 	border-radius: 50%;
 	content: '';
 	height: 0.5em;
