@@ -5,6 +5,7 @@
 	@apply px-1;
 	@apply transition;
 	@apply duration-200;
+	fill: currentColor;
 }
 
 .hover\:fill-github:hover {
