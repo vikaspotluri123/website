@@ -38,6 +38,35 @@
 	}
 }
 
+.clip-arrow {
+	--bowtie: polygon(0 0, 50% 10vh, 100% 0, 100% 100%, 50% calc(100% - 10vh), 0% 100%);
+	--background: theme('colors.blue.200');
+	--border: theme('colors.blue.700');
+	@apply py-32;
+	position: relative;;
+	min-height: 30vh;
+	clip-path: var(--bowtie);
+	background: var(--border);
+	/* clip-path: polygon(0 30vh, 100% 0, 100% calc(100% - 30vh), 0% 100%); */
+}
+
+.dark .clip-arrow {
+	--background: theme('colors.blue.900');
+	--border: theme('colors.indigo.500');
+}
+
+.clip-arrow::before {
+	content: '';
+	position: absolute;
+	left: 8px;
+	right: 8px;
+	top: 8px;
+	bottom: 8px;
+	background: var(--background);
+	z-index: -1;
+	clip-path: var(--bowtie);
+}
+
 #work .content {
 	@apply mt-10;
 	@apply items-center;
