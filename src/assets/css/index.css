@@ -13,6 +13,10 @@
 	--hero-bg-end: #460957;
 }
 
+.dark .hero-wrap {
+	filter: drop-shadow(0 3px 5px var(--hero-bg-start));
+}
+
 #hero {
 	background: linear-gradient(
 		240deg,
@@ -21,7 +25,7 @@
 	), var(--hero-bg-start);
 	min-height: calc(100vh - theme('spacing.12'));
 	/* clip-path: polygon(0 0, 100% 0, 100% calc(100vh - 10vh), 0% 100%) */
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100vh - 15vh))
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100vh - 15vh));
 }
 
 @media (max-height: 500px) {
