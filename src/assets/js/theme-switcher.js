@@ -19,7 +19,6 @@ const handleThemeChangeRequest = () => {
 	let shouldUseDarkMode = false;
 
 	if (savedTheme === 'light') {
-		nextTheme === 'system';
 		shouldUseDarkMode = systemThemeMatch.matches;
 	} else if (savedTheme === 'dark') {
 		nextTheme = 'light';
@@ -28,10 +27,10 @@ const handleThemeChangeRequest = () => {
 		shouldUseDarkMode = true;
 	}
 
-	if (nextTheme === 'system') {
-		localStorage.removeItem('theme');
-	} else {
+	if (nextTheme) {
 		localStorage.setItem('theme', nextTheme);
+	} else {
+		localStorage.removeItem('theme');
 	}
 
 	setTheme(shouldUseDarkMode);
