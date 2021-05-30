@@ -2,6 +2,7 @@
 const {task, src, dest, parallel, series, watch} = require('gulp');
 const getWatcher = require('./gulp/watcher');
 const promisifyStream = require('./gulp/promisify-stream');
+/** @type {import('@11ty/eleventy')} */
 let eleventy;
 
 function copyChangedMarkupFile(path) {
@@ -66,12 +67,9 @@ task('markup', async () => {
 	}
 
 	await Promise.all([
-		eleventy.write(),
 		src(['src/blog/**/*.hbs', '!src/blog/_members-data/**/*', 'src/blog/package.json']).pipe(dest('./dist-blog/')),
 		src('src/blog/assets/**/*').pipe(dest('./dist-blog/assets'))
 	]);
-
-	eleventy.writer.writeCount = 0;
 });
 
 task('binaries', () => {
@@ -109,8 +107,9 @@ task('dev', series('default', function devServer() {
 	const reload = () => liveReload.reload();
 	watch('./src/**/*.css', series('css')).on('change', reload);
 	watch('./src/**/*.js', series('js')).on('change', reload);
-	watch(['./src/**/*.hbs', './src/**/*.md']).on('change', copyChangedMarkupFile).on('change', reload);
+	watch(['./src/**/*.hbs', './src/**/*.md']).on('change', copyChangedMarkupFile);
 	watch(['./src/assets/font/**/*', './src/assets/img/**/*'], series('binaries')).on('change', reload);
+	eleventy.watch().then(() => eleventy.watcher.on('all', reload));
 }));
 
 task('build', series(
