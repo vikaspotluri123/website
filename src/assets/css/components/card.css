@@ -9,6 +9,7 @@
 	@apply p-6;
 	@apply rounded;
 	transition: all 250ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	background: linear-gradient(240deg, var(--gradient-start), var(--gradient-end));
 }
 
 @media (max-width: 400px) {
@@ -62,22 +63,40 @@
 }
 
 .card-bg-green {
-	background: linear-gradient(240deg, #005f03, #009900);
+	--gradient-start: #005f03;
+	--gradient-end: #009900;
 	--box-layer-1: #005f03ff;
 	--box-layer-2: #005f0399;
-	--box-layer-3: #005f0340
+	--box-layer-3: #005f0340;
+}
+
+.dark .card-bg-green {
+	--gradient-start: #002401;
+	--gradient-end: #002401;
 }
 
 .card-bg-red {
-	background: linear-gradient(240deg, #c23b22, #990000);
+	--gradient-start: #c23b22;
+	--gradient-end: #990000;
 	--box-layer-1: #990000ff;
 	--box-layer-2: #99000099;
-	--box-layer-3: #99000040
+	--box-layer-3: #99000040;
+}
+
+.dark .card-bg-red {
+	--gradient-start: #240000;
+	--gradient-end: #240000;
 }
 
 .card-bg-blue {
-	background: linear-gradient(240deg, #990099, #663399);
+	--gradient-start: #990099;
+	--gradient-end: #663399;
 	--box-layer-1: #990099ff;
 	--box-layer-2: #99009999;
-	--box-layer-3: #99009940
+	--box-layer-3: #99009940;
+}
+
+.dark .card-bg-blue {
+	--gradient-start: #12091b;
+	--gradient-end: #12091b;
 }
