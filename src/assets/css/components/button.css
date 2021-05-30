@@ -10,12 +10,9 @@
 	@apply rounded;
 	@apply hover:text-blue-300;
 	@apply hover:bg-blue-900;
+	@apply dark:bg-blue-900;
+	@apply dark:text-blue-300;
+	@apply dark:hover:text-blue-900;
+	@apply dark:hover:bg-blue-300;
 	transition: 0.25s ease-in-out;
-}
-
-.dark .button {
-	@apply bg-blue-900;
-	@apply text-blue-300;
-	@apply hover:text-blue-900;
-	@apply hover:bg-blue-300;
 }
