@@ -7,5 +7,5 @@
 
 .h2--border {
 	@apply border-b;
-	@apply border-black;
+	border-color: var(--fg-primary);
 }
