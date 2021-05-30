@@ -3,11 +3,8 @@
 @tailwind components;
 
 :root {
-	--white: #ebebeb;
-	--black: #4F4F4F;
-
-	--bg-primary: var(--white);
-	--fg-primary: var(--black);
+	--bg-primary: theme('colors.white');
+	--fg-primary: theme('colors.black');
 }
 
 :root.dark {
