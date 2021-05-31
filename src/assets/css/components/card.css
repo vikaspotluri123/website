@@ -64,7 +64,7 @@
 .card-description {
 	@apply text-left;
 	@apply list-disc;
-	@apply px-6;
+	@apply pl-6;
 	@apply mt-4;
 	@apply font-thin;
 	@apply tracking-wide;
