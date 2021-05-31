@@ -22,7 +22,6 @@ const nextTheme = currentTheme => {
  */
 const updateButton = activeIcon => {
 	for (const child of switcher.children) {
-		window['console'].log(child)
 		child.classList.toggle('hidden', !child.classList.contains(activeIcon));
 	}
 
