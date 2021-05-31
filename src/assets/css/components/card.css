@@ -1,7 +1,9 @@
 .card--wrapper {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	place-items: center;
 	gap: 1rem;
+	margin: 1rem;
 }
 
 .card {
@@ -10,7 +12,9 @@
 	@apply min-h-full;
 	@apply p-6;
 	@apply rounded;
-	position: relative;
+	@apply relative;
+	@apply w-full;
+	@apply max-w-lg;
 	transition: var(--card-transition);
 	background: linear-gradient(240deg, var(--gradient-start), var(--gradient-end));
 }
@@ -19,14 +23,9 @@
 	--hover-base: 255 255 255;
 }
 
-@media (max-width: 400px) {
+@media (max-width: theme('maxWidth.lg')) {
 	#work .content {
 		grid-template-columns: initial;
-	}
-
-	.card {
-		@apply w-full;
-		@apply mx-auto;
 	}
 }
 
