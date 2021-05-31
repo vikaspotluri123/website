@@ -254,5 +254,5 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	@apply mx-auto;
 	@apply text-left;
 	@apply px-4;
-	@apply max-w-90ch !important;
+	max-width: 90ch !important;
 }

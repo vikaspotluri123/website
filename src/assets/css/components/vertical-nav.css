@@ -1,19 +1,11 @@
-@responsive {
-	.vertical-nav-wrapper {
-		display: grid;
-		grid-template-columns: 2rem 1fr;
-	}
+.vertical-nav-wrapper {
+	display: grid;
+	grid-template-columns: 2rem 1fr;
+}
 
-	.vertical-nav-wrapper--hide {
+@screen lg {
+	.lg\:vertical-nav-wrapper--hide {
 		grid-template-columns: 1fr;
-	}
-
-	.vertical-nav-offset {
-		padding-left: 2.5rem !important;
-	}
-
-	.vertical-nav-offset--none {
-		padding-left: theme('spacing.2') !important;
 	}
 }
 

@@ -1,8 +1,6 @@
 module.exports = {
-	purge: [
-		'./dist-blog/**/*.hbs',
-		'./dist/**/*.html'
-	],
+	purge: ['./src/**/*.hbs'],
+	mode: 'jit',
 	darkMode: 'class',
 	theme: {
 		container: {
