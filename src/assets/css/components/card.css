@@ -58,7 +58,7 @@
 
 .card-heading--large {
 	@apply text-2xl;
-	@apply mb-8;
+	@apply my-4;
 }
 
 .card-description {
