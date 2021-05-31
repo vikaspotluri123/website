@@ -68,9 +68,15 @@
 					<li class="py-1 sm:py-0"><a href="https://archive.vikaspotluri.me" class="link">The Vault</a></li>
 					<li class="py-1 sm:py-0">
 						<button id="theme-switcher" class="align-bottom">
-							<svg class="w-6 h-6 fill-current hidden dark"><use xlink:href="#dark-theme"></use></svg>
-							<svg class="w-6 h-6 fill-current hidden system"><use xlink:href="#system-theme"></use></svg>
-							<svg class="w-6 h-6 fill-current hidden light"><use xlink:href="#light-theme"></use></svg>
+							<svg class="w-6 h-6 fill-current hidden transition-colors hover:text-pink-700 dark">
+								<use xlink:href="#dark-theme"></use>
+							</svg>
+							<svg class="w-6 h-6 fill-current hidden transition-colors hover:text-green-300 system">
+								<use xlink:href="#system-theme"></use>
+							</svg>
+							<svg class="w-6 h-6 fill-current hidden transition-colors hover:text-yellow-400 light">
+								<use xlink:href="#light-theme"></use>
+							</svg>
 						</button>
 					</li>
 				</ul>
