@@ -1,40 +1,67 @@
 // @ts-check
 const switcher = document.getElementById('theme-switcher');
 
-/** @param {boolean} makeDark */
-const setTheme = makeDark => document.documentElement.classList.toggle('dark', makeDark);
+/**
+ * @typedef {'system' | 'light' | 'dark'} Theme
+ */
+
+/** @param {Theme} currentTheme @returns {Theme} */
+const nextTheme = currentTheme => {
+	switch (currentTheme) {
+		case 'dark':
+			return 'light';
+		case 'light':
+			return 'system';
+		default:
+			return 'dark';
+	}
+};
+
+/**
+ * @param {Theme} activeIcon
+ */
+const updateButton = activeIcon => {
+	for (const child of switcher.children) {
+		window['console'].log(child)
+		child.classList.toggle('hidden', !child.classList.contains(activeIcon));
+	}
+
+	switcher.setAttribute('title', `Use "${nextTheme(activeIcon)}" theme - current is "${activeIcon}"`);
+};
+
+/**
+ * @param {boolean} makeDark
+ * @param {Theme} activeIcon
+ */
+const setTheme = (makeDark, activeIcon) => {
+	document.documentElement.classList.toggle('dark', makeDark);
+	updateButton(activeIcon);
+}
 
 /**
  * @param {MediaQueryListEvent} event
  */
 const handleColorSchemePreferenceChange = (event) => {
 	if (!localStorage.getItem('theme')) {
-		setTheme(event.matches);
+		setTheme(event.matches, event.matches ? 'dark' : 'light');
 	}
 }
 
 const handleThemeChangeRequest = () => {
-	const savedTheme = localStorage.getItem('theme');
-	let nextTheme;
-	let shouldUseDarkMode = false;
+	// @ts-expect-error
+	const computedNextTheme = nextTheme(localStorage.getItem('theme'));
+	const shouldUseDarkMode = computedNextTheme === 'system' ? systemThemeMatch.matches : computedNextTheme === 'dark';
+	setTheme(shouldUseDarkMode, computedNextTheme);
 
-	if (savedTheme === 'light') {
-		shouldUseDarkMode = systemThemeMatch.matches;
-	} else if (savedTheme === 'dark') {
-		nextTheme = 'light';
-	} else {
-		nextTheme = 'dark';
-		shouldUseDarkMode = true;
-	}
-
-	if (nextTheme) {
-		localStorage.setItem('theme', nextTheme);
-	} else {
+	if (computedNextTheme === 'system') {
 		localStorage.removeItem('theme');
+	} else {
+		localStorage.setItem('theme', computedNextTheme);
 	}
-
-	setTheme(shouldUseDarkMode);
 };
+
+// @ts-expect-error
+updateButton(localStorage.getItem('theme') ?? 'system');
 
 switcher.addEventListener('click', handleThemeChangeRequest);
 
