@@ -18,6 +18,7 @@
 }
 
 #hero {
+	@apply transition-colors;
 	background: linear-gradient(
 		240deg,
 		var(--hero-bg-start) 0,
