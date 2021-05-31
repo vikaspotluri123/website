@@ -36,3 +36,17 @@
 	 */
 	width: calc(100vh - theme('spacing.12'));
 }
+
+.vertical-nav--items a {
+	--active-nav-color: theme('colors.yellow.600');
+	@apply transition-colors;
+	@apply duration-500;
+}
+
+.dark .vertical-nav--items a {
+	--active-nav-color: var(--verb-color);
+}
+
+.vertical-nav--items a.active {
+	color: var(--active-nav-color)
+}
