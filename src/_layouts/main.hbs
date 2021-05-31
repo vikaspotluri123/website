@@ -56,8 +56,8 @@
 </head>
 <body>
 	{{> theme-icons}}
-	<header class="fixed w-screen sm:h-12 align-middle nav-bg text-white z-50">
-		<div class="container px-6 h-full sm:flex items-center justify-between">
+	<header class="fixed w-full sm:h-12 align-middle nav-bg text-white z-50">
+		<div class="padded-container h-full sm:flex items-center justify-between">
 			<a class="text-center block w-full sm:text-left sm:inline sm:w-auto orbitron tracking-wider" href="/">Vikas Potluri</a>
 			<input type="checkbox" id="nav-toggle" class="invisible sm:hidden absolute" />
 			<nav class="hidden text-center sm:block nav-collapsible">
@@ -84,7 +84,7 @@
 			<label for="nav-toggle" class="sm:hidden nav-collapsible--icon"><svg class="mx-auto w-6 h-6 transition duration-100" fill="currentColor" role="img" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg></label>
 		</div>
 	</header>
-	<main class="text-primary text-center z-5 pt-12 w-full">
+	<main class="text-primary w-full text-center z-5 pt-12">
 		{{{content}}}
 	</main>
 	<footer class="text-center container p-4 border-t-2 mt-8 border-dotted border-purple-500 dark:border-blue-300 text-primary">
