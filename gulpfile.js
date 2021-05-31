@@ -67,6 +67,7 @@ task('markup', async () => {
 	}
 
 	await Promise.all([
+		eleventy.write(),
 		src(['src/blog/**/*.hbs', '!src/blog/_members-data/**/*', 'src/blog/package.json']).pipe(dest('./dist-blog/')),
 		src('src/blog/assets/**/*').pipe(dest('./dist-blog/assets'))
 	]);
