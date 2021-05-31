@@ -105,11 +105,12 @@ task('default', series(parallel(['markup', 'binaries', 'js']), 'css'));
 
 task('dev', series('default', function devServer() {
 	const liveReload = getWatcher();
-	const reload = () => liveReload.reload();
-	watch('./src/**/*.css', series('css')).on('change', reload);
-	watch('./src/**/*.js', series('js')).on('change', reload);
+	// This function is async to signal gulp that the the task completed
+	const reload = async () => liveReload.reload();
+	watch('./src/**/*.css', series('css', reload));
+	watch('./src/**/*.js', series('js', reload));
 	watch(['./src/**/*.hbs', './src/**/*.md']).on('change', copyChangedMarkupFile);
-	watch(['./src/assets/font/**/*', './src/assets/img/**/*'], series('binaries')).on('change', reload);
+	watch(['./src/assets/font/**/*', './src/assets/img/**/*'], series('binaries', reload));
 	eleventy.watch().then(() => eleventy.watcher.on('all', reload));
 }));
 
