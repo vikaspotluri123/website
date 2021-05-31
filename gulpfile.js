@@ -103,13 +103,16 @@ task('markup:inline', async () => {
 
 task('default', series(parallel(['markup', 'binaries', 'js']), 'css'));
 
-task('dev', series('default', function devServer() {
+task('dev', series(async () => {
+	// @todo: see if this is needed in the next tailwind release
+	process.env.TAILWIND_MODE = 'watch';
+}, 'default', async function devServer() {
 	const liveReload = getWatcher();
 	// This function is async to signal gulp that the the task completed
 	const reload = async () => liveReload.reload();
 	watch('./src/**/*.css', series('css', reload));
 	watch('./src/**/*.js', series('js', reload));
-	watch(['./src/**/*.hbs', './src/**/*.md']).on('change', copyChangedMarkupFile);
+	watch(['./src/**/*.hbs', './src/**/*.md'], series('css')).on('change', copyChangedMarkupFile);
 	watch(['./src/assets/font/**/*', './src/assets/img/**/*'], series('binaries', reload));
 	eleventy.watch().then(() => eleventy.watcher.on('all', reload));
 }));
