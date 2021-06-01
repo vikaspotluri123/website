@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script>
-		const theme = localStorage.getItem('theme');
-		window.systemThemeMatch = window.matchMedia('(prefers-color-scheme: dark)');
-		// CASE: User has explicitly requested dark theme
-		// CASE: User has not explicitly selected theme, but they prefer dark theme
-		if (theme === 'dark' || (!theme && window.systemThemeMatch.matches)) {
-			document.documentElement.classList.add('dark');
-		}
-	</script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
