@@ -1,6 +1,44 @@
 /* Read More
 /* ---------------------------------------------------------- */
 
+.gh-readmore {
+	padding: 8vmin 4vmin;
+	@apply text-2xl;
+}
+
+.gh-readmore-inner {
+	@apply flex;
+	@apply flex-wrap;
+	@apply justify-around;
+}
+
+.gh-readmore a {
+	@apply p-4;
+	@apply flex;
+	@apply text-current;
+	@apply no-underline;
+	@apply items-center;
+}
+
+.gh-readmore a:hover,
+.gh-readmore a:hover h4 {
+	@apply text-indigo-700;
+}
+
+.gh-readmore h4 {
+	font-size: inherit;
+}
+
+.gh-readmore svg {
+	@apply h-4;
+	margin: 0.15em 0 0;
+}
+
+.gh-readmore svg + h4,
+.gh-readmore h4 + svg {
+	margin-left: 2vmin;
+}
+
 #read-more-trigger {
 	@apply inline;
 	@apply py-4;
