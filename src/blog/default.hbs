@@ -22,11 +22,8 @@
 	</main>
 	{{> footer}}
 
-{{#if pagination.pages}}
-<script>
-	var maxPages = parseInt('{{pagination.pages}}');
-</script>
-<script src="{{asset 'js/infinite-scroll.js'}}"></script>
+{{#if pagination.next}}
+<script src="{{asset 'js/infinite-loader.js'}}"></script>
 {{/if}}
 
 {{#is "post, page"}}
