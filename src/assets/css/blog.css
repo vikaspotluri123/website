@@ -54,6 +54,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	max-width: 525px;
 	max-height: 700px;
 	@apply bg-gray-100;
+	@apply dark:bg-gray-900;
 	@apply rounded;
 	@apply shadow;
 	transform: skew(2.5deg);
@@ -255,4 +256,5 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	@apply text-left;
 	@apply px-4;
 	max-width: 90ch !important;
+	color: var(--fg-primary);
 }

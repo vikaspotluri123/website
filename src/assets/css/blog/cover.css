@@ -35,7 +35,7 @@
 	height: 151px;
 	width: 150px;
 	top: 0;
-	background: theme('colors.white');
+	background: var(--bg-primary);
 }
 
 .cover + .container::before {
