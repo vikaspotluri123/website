@@ -23,4 +23,7 @@
 			{{> "card"}} {{!-- partials/card.hbs --}}
 		{{/foreach}}
 		</div>
+		{{#if pagination.next}}
+		<div id="read-more-trigger" class="button with-border">Load More Posts</div>
+		{{/if}}
 </div>

@@ -16,3 +16,9 @@
 	@apply dark:hover:bg-blue-300;
 	transition: 0.25s ease-in-out;
 }
+
+.button.with-border {
+	@apply border;
+	@apply border-blue-900;
+	@apply dark:border-blue-300;
+}
