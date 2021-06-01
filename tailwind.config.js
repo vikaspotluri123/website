@@ -1,4 +1,10 @@
+const __colors = {
+	white: '#ebebeb',
+	black: '#4F4F4F'
+};
+
 module.exports = {
+	__colors,
 	purge: ['./src/**/*.hbs'],
 	mode: 'jit',
 	darkMode: 'class',
@@ -7,10 +13,7 @@ module.exports = {
 			center: true
 		},
 		extend: {
-			colors: {
-				white: '#ebebeb',
-				black: '#4F4F4F'
-			}
+			colors: __colors
 		},
 		typography(theme) {
 			return {
@@ -23,11 +26,5 @@ module.exports = {
 				}
 			};
 		}
-	},
-	variants: {},
-	plugins: [
-		/* require('@tailwindcss/typography')({
-			modifiers: ['lg']
-		}) */
-	],
+	}
 }

@@ -35,6 +35,7 @@ task('js', function () {
 
 task('css', () => {
 	const postcss = require('gulp-postcss');
+	const tailwindcss = require('tailwindcss');
 	const globalPostcssPlugins = [
 		require('autoprefixer'),
 		...process.env.NODE_ENV === 'production' ? [require('cssnano')] : []
@@ -42,18 +43,23 @@ task('css', () => {
 
 	return Promise.all([
 		promisifyStream(
-			src(['./src/assets/css/*.css', '!./src/assets/css/prose.css'])
+			src('./src/assets/css/*.css')
 				.pipe(postcss([
 					require('postcss-import'),
-					require('tailwindcss'),
+					tailwindcss,
 					...globalPostcssPlugins
 				]))
 				.pipe(dest('dist/css'))
 		),
 
 		promisifyStream(
-			src('./src/assets/css/prose.css')
-				.pipe(postcss(globalPostcssPlugins))
+			src('./src/assets/css/blog/prose.css')
+				.pipe(postcss([
+					// Provide a custom config that specifically targets the prose selector 🔥
+					// @ts-expect-error
+					tailwindcss(require('./tailwind-prose.config.js')),
+					...globalPostcssPlugins
+				]))
 				.pipe(dest('dist/css'))
 		)
 	]);

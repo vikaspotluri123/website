@@ -1,0 +1,11 @@
+:root {
+	--prose-divider: theme('colors.black');
+	--prose-marker: theme('colors.realGray.300');
+	--prose-caption: theme('colors.realGray.500');
+	--prose-leading: theme('colors.realGray.600');
+	--prose-primary-color: theme('colors.realGray.700');
+	--prose-preformatted: theme('colors.realGray.800');
+	--prose-emphasized: theme('colors.realGray.900');
+}
+
+@tailwind components;
