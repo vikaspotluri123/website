@@ -2,9 +2,11 @@
 /* global maxPages */
 
 class InfiniteLoader {
+	static NOT_A_DOM = Symbol('not a dom');
+
 	constructor() {
 		/** @type {DocumentFragment} */
-		this._nextDom = null;
+		this._nextDom = document;
 		this._loader = document.getElementById('read-more-trigger');
 		this._postList = document.querySelector('.gh-postfeed');
 		this._subscribeToLoadMore();
@@ -22,17 +24,20 @@ class InfiniteLoader {
 
 	loadNextPage() {
 		return this._loadNextPage().catch(() => {
-			this._loader.hidden = true;
-			this._nextDom = null;
+			this._loader.style.display = 'none';
+			if (!this._nextDom[InfiniteLoader.NOT_A_DOM]) {
+				this._nextDom = document.createRange().createContextualFragment('');
+				this._nextDom[InfiniteLoader.NOT_A_DOM] = true;
+			}
 		});
 	}
 
 	async _loadNextPage() {
-		const activeDom = this._nextDom || document;
+		const activeDom = this._nextDom;
 		/** @type {HTMLLinkElement} */
 		const next = activeDom.querySelector('link[rel="next"]');
 		if (!next?.href) {
-			throw new Error('does not contain link[rel="next"]')
+			throw new Error('does not contain link[rel="next"]');
 		}
 
 		const response = await fetch(next.href);
