@@ -13,20 +13,15 @@
 }
 
 .gh-readmore a {
+	font-size: inherit;
 	@apply p-4;
 	@apply flex;
 	@apply text-current;
 	@apply no-underline;
 	@apply items-center;
-}
-
-.gh-readmore a:hover,
-.gh-readmore a:hover h4 {
-	@apply text-indigo-700;
-}
-
-.gh-readmore h4 {
-	font-size: inherit;
+	@apply font-bold;
+	@apply hover:text-indigo-700;
+	@apply dark:hover:text-indigo-300;
 }
 
 .gh-readmore svg {
@@ -34,9 +29,12 @@
 	margin: 0.15em 0 0;
 }
 
-.gh-readmore svg + h4,
-.gh-readmore h4 + svg {
+.gh-readmore-prev svg {
 	margin-left: 2vmin;
+}
+
+.gh-readmore-next svg {
+	margin-right: 2vmin;
 }
 
 #read-more-trigger {
