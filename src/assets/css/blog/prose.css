@@ -3,9 +3,19 @@
 	--prose-marker: theme('colors.realGray.300');
 	--prose-caption: theme('colors.realGray.500');
 	--prose-leading: theme('colors.realGray.600');
-	--prose-primary-color: theme('colors.realGray.700');
+	/* --prose-primary-color: theme('colors.realGray.700'); */
+	--prose-primary-color: var(--fg-primary);
 	--prose-preformatted: theme('colors.realGray.800');
 	--prose-emphasized: theme('colors.realGray.900');
+}
+
+:root.dark {
+	--prose-divider: #0891B2;
+	--prose-marker: #22C55E;
+	--prose-caption: #A7F3D0;
+	--prose-leading: #0EA5E9;
+	--prose-preformatted: #0F172A;
+	--prose-emphasized: #2DD4BF;
 }
 
 @tailwind components;
