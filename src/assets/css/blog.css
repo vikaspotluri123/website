@@ -50,7 +50,8 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Index
 /* ---------------------------------------------------------- */
 
-/* Card Skewing */
+/* Card Skewing for larger devices */
+@media (min-width: theme('screens.lg')) {
 .post-card {
 	--card-skew-angle: 5deg;
 	transform: skew(var(--card-skew-angle));
@@ -110,12 +111,18 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 	.post-card a {
 		flex-direction: column;
+		gap: 1rem;
 	}
 
 	.post-card .feature-image {
 		max-width: 100%;
 		height: 100%;
 		max-height: 300px;
+	}
+
+	.gh-card-meta {
+		margin: 1rem auto;
+		text-align: center;
 	}
 }
 
@@ -170,8 +177,10 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 .gh-feature-image {
 	grid-column: wide-start / wide-end;
-	width: 100%;
 	margin: 8vmin 0 0;
+	@apply object-scale-down;
+	@apply w-full;
+	@apply max-h-52;
 }
 
 .gh-post-footer {
@@ -231,6 +240,10 @@ production stylesheet in assets/built/screen.css using: gulp dev
 
 .container--lg {
 	max-width: theme('screens.xl');
+}
+
+.post-loop-container {
+	max-width: calc(700px + 15vw);
 }
 
 .max-w-90ch {
