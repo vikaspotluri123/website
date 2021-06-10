@@ -23,7 +23,7 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	@apply flex;
 	@apply flex-wrap;
 	@apply content-center;
-	gap: 84px;
+	gap: 1rem;
 }
 
 .gh-head-actions a {
@@ -49,60 +49,46 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* Index
 /* ---------------------------------------------------------- */
 
-.gh-card {
-	flex: auto;
-	max-width: 525px;
-	max-height: 700px;
-	@apply bg-gray-100;
-	@apply dark:bg-gray-900;
-	@apply rounded;
-	@apply shadow;
-	transform: skew(2.5deg);
+/* Card Skewing */
+.post-card {
+	--card-skew-angle: 5deg;
+	transform: skew(var(--card-skew-angle));
 }
 
-.gh-card,
-.gh-card .gh-card-content {
+/*
+ - Skew every other card the opposite angle
+ - Skew every other not-skewed region (offset by 1) the same angle
+    - offset by 1 because we're counteracting the skew - whatever is skewed X needs to be skewed -X
+*/
+.post-card:nth-child(2n + 1),
+.post-card:nth-child(2n) .card-not-skewed {
+	transform: skew(calc(var(--card-skew-angle) * -1));
+}
+
+.card-not-skewed {
+	transform: skew(var(--card-skew-angle));
+}
+
+.post-card:hover {
+	transform: skew(0) scale(1.02);
+}
+
+.post-card:hover .card-not-skewed {
+	transform: skew(0);
+}
+
+.post-card,
+.card-not-skewed {
 	@apply transition;
 	@apply transition-transform;
 	@apply ease-in-out;
 	@apply duration-500;
 }
 
-.gh-card:nth-child(4n - 1),
-.gh-card:nth-child(4n) {
-	transform: skew(-2.5deg);
-}
-
-.gh-card .gh-card-content {
-	transform: skew(-2.5deg);
-}
-
-.gh-card:nth-child(4n - 1) .gh-card-content,
-.gh-card:nth-child(4n) .gh-card-content {
-	transform: skew(2.5deg);
-}
-
-.gh-card:hover,
-.gh-card:hover .gh-card-content {
-	transform: skew(0)
-}
-
-.gh-card:hover {
-	transform: skew(0) scale(1.02);
-}
-
-.gh-card-link {
-	display: flex;
-	flex-direction: column;
-	@apply pb-8;
-	@apply h-full;
-}
-
-.gh-card-image {
+.post-card .feature-image {
+	max-width: 250px;
 	width: 100%;
-	max-height: 350px;
-	object-fit: cover;
-	margin-bottom: 4vmin;
+	@apply ml-6;
 }
 
 .gh-card-meta {
@@ -113,25 +99,6 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	text-transform: uppercase;
 	opacity: 0.8;
 }
-
-.gh-card-content {
-	flex: 1;
-}
-
-.gh-card-content p {
-	margin: 1.2rem 0;
-	padding: 0 6vmin;
-	text-align: left;
-}
-
-.gh-card-content > strong {
-	display: inline-block;
-	padding: 1px 0;
-	font-weight: 500;
-	box-shadow: 0 -1px 0 0 inset currentColor;
-	opacity: 0.5;
-}
-
 
 /* Page
 /* ---------------------------------------------------------- */
