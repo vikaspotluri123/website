@@ -49,11 +49,6 @@ ol[class] {
 	list-style: none;
 }
 
-::selection {
-	text-shadow: none;
-	background: #cbeafb;
-}
-
 mark {
 	background-color: #fdffb6;
 }

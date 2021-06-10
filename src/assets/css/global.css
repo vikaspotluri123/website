@@ -21,4 +21,14 @@
 	padding-top: theme('spacing.12');
 }
 
+::selection {
+	--selection-opacity: 0.25;
+	text-shadow: none;
+	background: hsla(175, 80%, 40%, var(--selection-opacity));
+}
+
+.select-light ::selection {
+	--selection-opacity: 1;
+}
+
 @tailwind utilities;
