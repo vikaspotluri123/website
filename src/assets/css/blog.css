@@ -19,10 +19,11 @@ production stylesheet in assets/built/screen.css using: gulp dev
 /* ---------------------------------------------------------- */
 
 .gh-postfeed {
-	padding: 8vmin 2rem;
+	padding: 8vmin 1rem;
 	@apply flex;
 	@apply flex-wrap;
 	@apply content-center;
+	@apply mx-auto;
 	gap: 1rem;
 }
 
@@ -60,35 +61,37 @@ production stylesheet in assets/built/screen.css using: gulp dev
  - Skew every other not-skewed region (offset by 1) the same angle
     - offset by 1 because we're counteracting the skew - whatever is skewed X needs to be skewed -X
 */
-.post-card:nth-child(2n + 1),
-.post-card:nth-child(2n) .card-not-skewed {
-	transform: skew(calc(var(--card-skew-angle) * -1));
-}
+	.post-card:nth-child(2n + 1),
+	.post-card:nth-child(2n) .card-not-skewed {
+		transform: skew(calc(var(--card-skew-angle) * -1));
+	}
 
-.card-not-skewed {
-	transform: skew(var(--card-skew-angle));
-}
+	.card-not-skewed {
+		transform: skew(var(--card-skew-angle));
+	}
 
-.post-card:hover {
-	transform: skew(0) scale(1.02);
-}
+	.post-card:hover {
+		transform: skew(0) scale(1.02);
+	}
 
-.post-card:hover .card-not-skewed {
-	transform: skew(0);
-}
+	.post-card:hover .card-not-skewed {
+		transform: skew(0);
+	}
 
-.post-card,
-.card-not-skewed {
-	@apply transition;
-	@apply transition-transform;
-	@apply ease-in-out;
-	@apply duration-500;
+	.post-card,
+	.card-not-skewed {
+		@apply transition;
+		@apply transition-transform;
+		@apply ease-in-out;
+		@apply duration-500;
+	}
 }
+/** End Skew */
 
 .post-card .feature-image {
 	max-width: 250px;
-	width: 100%;
-	@apply ml-6;
+	@apply w-full;
+	@apply md:ml-6;
 }
 
 .gh-card-meta {
@@ -99,6 +102,23 @@ production stylesheet in assets/built/screen.css using: gulp dev
 	text-transform: uppercase;
 	opacity: 0.8;
 }
+
+@media (max-width: theme('screens.md')) {
+	.gh-postfeed {
+		gap: 1.75rem;
+	}
+
+	.post-card a {
+		flex-direction: column;
+	}
+
+	.post-card .feature-image {
+		max-width: 100%;
+		height: 100%;
+		max-height: 300px;
+	}
+}
+
 
 /* Page
 /* ---------------------------------------------------------- */

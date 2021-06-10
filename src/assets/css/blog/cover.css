@@ -49,6 +49,16 @@
 }
 
 @media (max-width: 1700px) {
+	.cover {
+		height: 25vh;
+	}
+
+	.cover + .container {
+		@apply my-0;
+		@apply mx-auto;
+		@apply px-4;
+	}
+
 	.cover +.container::before,
 	.cover +.container::after {
 		display: none;
