@@ -41,34 +41,12 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	scroll-behavior: smooth;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 ul[class],
 ol[class] {
 	padding: 0;
 	list-style: none;
-}
-
-input,
-button,
-select,
-textarea {
-	font: inherit;
-	-webkit-appearance: none;
-}
-
-fieldset {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-label {
-	display: block;
-	font-size: 0.9em;
-	font-weight: 700;
 }
 
 ::selection {
@@ -154,7 +132,6 @@ h4 {
 	@apply font-bold;
 	color: var(--fg-primary);
 	@apply leading-normal;
-
 }
 
 /* Remove all animations and transitions for people that prefer not to see them */
