@@ -41,5 +41,7 @@
 	@apply inline;
 	@apply py-4;
 	@apply px-8;
+	@apply m-0;
+	@apply mb-4;
 	@apply cursor-pointer;
 }
