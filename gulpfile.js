@@ -102,8 +102,9 @@ task('markup:inline', async () => {
 	]);
 
 	return Promise.all([
-		inlineAssetGlob('./dist/*.html', './dist', assets),
-		inlineAssetGlob('./dist-blog/default.hbs', './dist-blog', assets)
+		inlineAssetGlob('./dist/**/*.html', './dist', assets),
+		inlineAssetGlob('./dist-blog/default.hbs', './dist-blog', assets),
+		inlineAssetGlob('./dist-blog/partials/*.hbs', './dist-blog/partials/', assets)
 	]);
 });
 
