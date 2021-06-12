@@ -1,5 +1,5 @@
 module.exports = {
-	purge: false,
+	purge: ['src/_data/_tailwind_prose_classes.html'],
 	corePlugins: [],
 	theme: {
 		screens: {
@@ -23,7 +23,7 @@ module.exports = {
 	},
 	plugins: [
 		require('@tailwindcss/typography')({
-			modifiers: []
+			modifiers: ['lg']
 		})
 	]
 }
