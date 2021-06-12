@@ -1,0 +1,39 @@
+{{!< default}}
+
+{{#post}}
+{{#contentFor "pre-main"}}
+<header class="prose lg:prose-lg gh-header gh-canvas bg-primary z-[51] !max-w-full">
+	<div class="min-h-screen grid place-items-center entry-cover">
+		<h1 class="!text-6xl font-bo">{{title}}</h1>
+	</div>
+</header>
+{{/contentFor}}
+<article class="prose vp-prose lg:prose-lg {{post_class}}">
+	<div class="main-content-area">
+		<hr class="border-dashed" />
+		{{content}}
+	</div>
+
+	{{^has author="Vikas Potluri"}}
+	<footer class="gh-footer gh-canvas">
+		<div class="gh-post-authors">
+			Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
+		</div>
+	</footer>
+	{{/has}}
+</article>
+
+<aside class="gh-readmore">
+	<div class="gh-readmore-inner container">
+		<div class="gh-readmore-next">
+			{{#next_post}}<a href="{{url}}">{{> "icons/arrow-left"}} {{title}}</a>{{/next_post}}
+		</div>
+		<div class="gh-readmore-prev">
+			{{#prev_post}}<a href="{{url}}">
+				{{title}} {{> "icons/arrow-right"}}
+			</a>{{/prev_post}}
+		</div>
+	</div>
+</aside>
+
+{{/post}}
