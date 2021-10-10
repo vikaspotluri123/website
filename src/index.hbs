@@ -9,6 +9,19 @@ description: I'm Vikas Potluri - A passionate hardware and software engineer
 {{/block}}
 
 <div class="hero-wrap">
+	<svg viewBox="0 0 2000 2000" xmlns='http://www.w3.org/2000/svg' preserveAspectRatio="none" class="hero-bg">
+		<defs>
+			<filter id='noise'>
+				<feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' />
+			</filter>
+			<linearGradient x1="0" y1="0" x2="100%" y2="100%" id="gradient" gradientTransform="rotate(120) translate(-1, -1)">
+				<stop class="bg-start" offset="0%"></stop>
+				<stop class="bg-end" offset="100%"></stop>
+			</linearGradient>
+		</defs>
+		<rect width="100%" height="100%" filter='url(#noise)' />
+		<rect width="100%" height="100%" fill="url(#gradient)" class="gradient"></rect>
+	</svg>
 	<section id="hero" class="text-white flex items-center justify-center flex-col p-2">
 		<h1 class="md:text-6xl sm:text-5xl text-4xl mb-12 font-bold">Howdy, I'm Vikas 👋</h1>
 		<img src="/img/headshot.png" alt="My face" class="w-40 h-40 mb-12" />

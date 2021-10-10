@@ -17,21 +17,35 @@
 	filter: drop-shadow(0 3px 5px var(--hero-bg-start));
 }
 
+.hero-wrap,
 #hero {
-	@apply transition-colors;
-	background: linear-gradient(
-		240deg,
-		var(--hero-bg-start) 0,
-		var(--hero-bg-end) 100%
-	), var(--hero-bg-start);
 	min-height: calc(100vh - theme('spacing.12'));
-	/* clip-path: polygon(0 0, 100% 0, 100% calc(100vh - 10vh), 0% 100%) */
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100vh - 15vh));
 }
 
+.hero-bg {
+	@apply transition-colors;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.hero-bg .gradient {
+	mix-blend-mode: hard-light;
+}
+
+.hero-bg .bg-start {
+	stop-color: var(--hero-bg-start);
+}
+
+.hero-bg .bg-end {
+	stop-color: var(--hero-bg-end);
+}
+
 @media (max-height: 500px) {
+	.hero-wrap,
 	#hero {
-		clip-path: initial;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 	}
 
 	.mb-12 {
