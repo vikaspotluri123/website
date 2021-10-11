@@ -31,12 +31,12 @@
 }
 
 .hero-bg .gradient {
-	mix-blend-mode: hard-light;
+	mix-blend-mode: soft-light;
+	mix-blend-mode: multiply;
 }
 
 .dark .hero-bg .gradient {
-	mix-blend-mode: soft-light;
-	mix-blend-mode: multiply;
+        mix-blend-mode: hard-light;
 }
 
 .hero-bg .bg-start {
