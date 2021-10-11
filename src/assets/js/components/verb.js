@@ -1,9 +1,9 @@
 // @ts-check
 export default class Verb {
 	constructor(element) {
-		this.list = ['design', 'develop', 'visualize']
+		this.list = ['Designer', 'Developer', 'Visualizer']
 		// (precomputed) - number of characters in longest adjective
-		this.width = 9 - 1;
+		this.width = 10 - 1;
 		this.updateRate = 625;
 		this.element = element;
 		this._index = 0;
