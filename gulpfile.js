@@ -108,7 +108,8 @@ task('markup:inline', async () => {
 	]);
 });
 
-task('default', series(parallel(['markup', 'binaries', 'js']), 'css'));
+// Markup depends on CSS and JS assets to be compiled since the assets are minified / have a hashed url
+task('default', series(parallel(['css', 'binaries', 'js']), 'markup'));
 
 task('dev', series(async () => {
 	// @todo: see if this is needed in the next tailwind release
