@@ -13,6 +13,18 @@
 	--hero-bg-end: #270f55;
 }
 
+@font-face {
+	font-family: 'Gloria Hallelujah';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url('/font/gloria-hallelujah-partial.woff2') format('woff2');
+}
+
+.gloria-hallelujah {
+	font-family: 'Gloria Hallelujah', sans-serif;
+}
+
 .dark .hero-wrap {
 	filter: drop-shadow(0 3px 5px var(--hero-bg-start));
 }
@@ -36,7 +48,7 @@
 }
 
 .dark .hero-bg .gradient {
-        mix-blend-mode: hard-light;
+	mix-blend-mode: hard-light;
 }
 
 .hero-bg .bg-start {
