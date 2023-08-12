@@ -11,8 +11,8 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
-    "blog:test": "gscan src/blog",
-    "blog:test:ci": "gscan --fatal --verbose src/blog",
+    "blog:test": "gscan --v3 src/blog",
+    "blog:test:ci": "gscan --v3 --fatal --verbose src/blog",
     "blog:zip": "gulp blog:zip"
   },
   "dependencies": {
