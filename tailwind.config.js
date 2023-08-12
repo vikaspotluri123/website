@@ -5,8 +5,7 @@ const __colors = {
 
 module.exports = {
 	__colors,
-	purge: ['./src/**/*.hbs'],
-	mode: 'jit',
+	content: ['./src/**/*.hbs'],
 	darkMode: 'class',
 	theme: {
 		container: {

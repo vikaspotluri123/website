@@ -1,5 +1,5 @@
 module.exports = {
-	purge: ['src/_data/_tailwind_prose_classes.html'],
+	content: ['src/_data/_tailwind_prose_classes.html'],
 	corePlugins: [],
 	theme: {
 		screens: {
