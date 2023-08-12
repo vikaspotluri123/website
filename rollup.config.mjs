@@ -1,4 +1,5 @@
 // require('dotenv').config()
+import {readdir} from 'node:fs/promises';
 import {terser} from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
@@ -19,7 +20,6 @@ const baseConfig = {
 };
 
 async function buildConfig() {
-	const {readdir} = require('fs').promises;
 	const base = './src/assets/js';
 
 	const files = await readdir(base);

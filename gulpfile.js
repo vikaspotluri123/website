@@ -5,12 +5,25 @@ const promisifyStream = require('./gulp/promisify-stream');
 /** @type {import('@11ty/eleventy')} */
 let eleventy;
 
+/** @type {import('del').deleteAsync} */
+let _del;
+
+/**
+ * @param {string} patterns
+ */
+function deferDel(patterns) {
+	return async () => {
+		_del = _del ?? await import('del').then(({deleteAsync}) => deleteAsync);
+		return _del(patterns);
+	};
+}
+
 function copyChangedMarkupFile(path) {
 	let destination = path.includes('blog') ? './dist-blog/' : './dist';
 	return src(path).pipe(dest(destination));
 }
 
-task('clean', () => require('del')('./dist*'));
+task('clean', deferDel('./dist*'));
 
 task('enableProdMode', () => {
 	process.env.NODE_ENV = 'production';
