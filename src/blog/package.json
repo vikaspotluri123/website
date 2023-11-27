@@ -3,14 +3,14 @@
 	"description": "Vikas' Blog Theme",
 	"version": "1.0.0",
 	"engines": {
-		"ghost": ">=3.0.0",
-		"ghost-api": "v3"
+		"ghost": ">=5.0.0"
 	},
 	"author": {
 		"name": "Vikas Potluri",
 		"email": "me@vikaspotluri.me",
 		"url": "https://vikaspotluri.me"
 	},
+  "keywords": ["ghost-theme"],
 	"config": {
 		"posts_per_page": 15,
 		"image_sizes": {

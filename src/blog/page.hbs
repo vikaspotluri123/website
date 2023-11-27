@@ -3,14 +3,18 @@
 {{#post}}
 <article class="prose vp-prose lg:prose-lg {{post_class}}">
 	<header class="gh-header gh-canvas">
+		{{#if @page.show_title_and_feature_image}}
 		<h1>{{title}}</h1>
+		{{/if}}
 
 		{{#if custom_excerpt}}
 			<p class="gh-excerpt">{{custom_excerpt}}</p>
 		{{/if}}
 
-		{{#if feature_image}}
-			<img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+		{{#if @page.show_title_and_feature_image}}
+			{{#if feature_image}}
+				<img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+			{{/if}}
 		{{/if}}
 	</header>
 	<div class="main-content-area">
