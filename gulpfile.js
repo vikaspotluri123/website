@@ -114,11 +114,12 @@ task('markup:inline', async () => {
 		readAllAssets('css', assets),
 	]);
 
-	return Promise.all([
-		inlineAssetGlob('./dist/**/*.html', './dist', assets),
-		inlineAssetGlob('./dist-blog/default.hbs', './dist-blog', assets),
-		inlineAssetGlob('./dist-blog/partials/*.hbs', './dist-blog/partials/', assets)
-	]);
+	// These would ideally run in parallel, but there's a race condition that I haven't
+	// root-caused which prevents some inlines from getting committed. The specific issue I had
+	// was the theme switcher in the blog header.
+	await inlineAssetGlob('./dist/**/*.html', './dist', assets);
+	await inlineAssetGlob('./dist-blog/default.hbs', './dist-blog', assets);
+	await inlineAssetGlob('./dist-blog/partials/*.hbs', './dist-blog/partials/', assets);
 });
 
 // Markup depends on CSS and JS assets to be compiled since the assets are minified / have a hashed url

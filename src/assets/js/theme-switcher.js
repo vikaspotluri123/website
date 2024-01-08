@@ -69,3 +69,8 @@ switcher.addEventListener('click', handleThemeChangeRequest);
 const {systemThemeMatch} = window;
 
 systemThemeMatch.addEventListener('change', handleColorSchemePreferenceChange);
+document.addEventListener('load', () => {
+	// `anik` --> Animations ok - otherwise the initial rendering transitions from light to dark and creates an
+	// unexpected flash.
+	document.body.classList.add('anik')
+});
