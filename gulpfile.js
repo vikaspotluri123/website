@@ -124,6 +124,9 @@ task('markup:inline', async () => {
 
 // Markup depends on CSS and JS assets to be compiled since the assets are minified / have a hashed url
 task('default', series(parallel(['css', 'binaries', 'js']), 'markup'));
+task('serve', () => {
+	getWatcher()
+});
 
 task('dev', series(async () => {
 	// @todo: see if this is needed in the next tailwind release
