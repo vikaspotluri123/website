@@ -1,6 +1,7 @@
 module.exports = {
 	content: ['src/_data/_tailwind_prose_classes.html'],
 	corePlugins: [],
+	darkMode: 'class',
 	theme: {
 		screens: {
 			lg: require('tailwindcss/defaultConfig').theme.screens.lg
