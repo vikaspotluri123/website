@@ -13,7 +13,17 @@
 
 		{{#if @page.show_title_and_feature_image}}
 			{{#if feature_image}}
-				<img class="gh-feature-image" src="{{feature_image}}" alt="{{title}}" />
+				<figure class="gh-feature-image">
+					<img
+						srcset="{{img_url feature_image size="s"}} 320w,
+										{{img_url feature_image size="m"}} 600w,
+										{{img_url feature_image size="l"}} 960w,
+										{{img_url feature_image size="xl"}} 1200w,
+										{{img_url feature_image size="xxl"}} 2000w"
+						src="{{img_url feature_image size="xl"}}"
+						alt="{{title}}"
+					>
+				</figure>
 			{{/if}}
 		{{/if}}
 	</header>

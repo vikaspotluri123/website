@@ -178,6 +178,9 @@ production stylesheet in assets/built/screen.css using: gulp dev
 .gh-feature-image {
 	grid-column: wide-start / wide-end;
 	margin: 8vmin 0 0;
+}
+
+.gh-feature-image img {
 	@apply object-scale-down;
 	@apply w-full;
 	@apply max-h-52;
